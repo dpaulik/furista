@@ -1,0 +1,39 @@
+<h2>Forgot your password?</h2>
+
+<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
+  <%= devise_error_messages! %>
+  <br/>
+  <br/>
+  <div><%= f.label :email %><br />
+    <%= f.email_field :email %></div>
+  <br/>
+  <br/>
+  <div>
+    <%= f.submit "", :type => :image, :src => "/assets/resetpassword.png" %>
+  </div>
+<% end %>
+
+<!--
+<div class="popup">
+<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
+  <%= devise_error_messages! %>
+
+        <div class='heading'>
+          <img class="close" src="close.png" />
+          Reset Password
+        </div>
+        <div class='whitebg'>
+          <p>
+            Enter your e-mail address to have the password associated associated with that account reset. A new password will be e-mailed to the address.
+          </p>
+  <%= f.email_field :email %>
+        </div>
+        <div class='foot'>
+  <%= f.submit "", :class  => "resetpassword" %>
+          <a href="#" onclick ="$.modal.close();return false;">Cancel</a>
+        </div>
+<% end %>
+</div>
+
+-->
+

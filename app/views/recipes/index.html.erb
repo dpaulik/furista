@@ -1,0 +1,64 @@
+<img src="/assets/Ingredient1.jpg" class="bannerimg" />
+
+<div class="search_result_container">
+  <div class="head">
+    <img src="/assets/button.png" class="view" alt="Search" />
+    <div class="homesearchholder">
+      <%= form_tag recipes_path, :method => :get, :class => 'recipe_search', :id => "search_form" do %>
+        <%= text_field_tag :q, params[:q], :type => 'text', :placeholder => "Search" %>
+        <%= submit_tag '' %>
+      
+    </div>
+  </div>
+
+  <div class="mid">
+    <div class="resultheading">
+      <span class="lightgreyfont">
+        Sort by:  <%= select_tag "sort", options_for_select([ "Newest", "A-Z", "Z-A" ], params[:sort]), :onchange => ("$('#search_form').submit()") %>
+       <%= @recipes.total_entries %> Recipes
+      </span>
+    </div>
+    <% end %>
+    <%if @recipes.blank?%>
+      <div class="resultentry">
+        <div style="margin:10px">
+          No Record Found
+        </div>
+      </div>
+    <%end%>
+    <% @recipes.each do |r| %>
+      <div class="resultentry">
+        <div class="imgholder">
+          <img src="/assets/foodimg.png" />
+        </div>
+        <div class="recipe_detail_holder">
+          <h3>
+            <%= link_to r.title, recipe_path(r) %>
+          </h3>
+        </div>
+        <div class="costholder">
+          <span class="currency"></span><br />
+          <span class="serving"></span>
+        </div>
+      </div>
+    <%end%>
+
+    <div class="main_pagination">
+
+      <b>
+        <% unless @recipes.total_entries == 0 %>
+          <%if @recipes.total_entries <= 20%>
+            <%= "#{@recipes.total_entries} recipes" %>
+          <%else%>
+            <%= "#{@starting} - #{@ending} of #{@recipes.total_entries} recipes" %>
+          <%end%>
+        <%end %>
+      </b>
+      <%= will_paginate @recipes %>
+    </div>
+
+  </div>
+  <div class="foot"></div>
+
+</div>
+

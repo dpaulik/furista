@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Furitsa</title>
+    <%= stylesheet_link_tag    "style" %>
+    <%= javascript_include_tag :application %>
+    <%= csrf_meta_tags %>
+    <script type="text/javascript">
+      function redirect_to_new()
+      {
+        window.location = "/recipes/new"
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+
+        <input type="button" class="yellowbutton" value="Post your recipe" onclick="redirect_to_new();"  />
+        <ul class="topleftlinks">
+          <%= render 'devise/menu/login_items' %>
+          <%= render 'devise/menu/registration_items' %>
+        </ul>
+        <a href="/"><img class="logo" src="/assets/logo.png" alt="Furista" /></a>
+      </div>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+
+      <%= yield %>
+    </div>
+  </body>
+</html>

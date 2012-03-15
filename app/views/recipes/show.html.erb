@@ -1,0 +1,75 @@
+<div class="content">
+
+
+  <div class="recipe_container">
+
+    <div class="head">
+      <a href="/recipes">
+        <img src="recipe-backarrow.png" class="backarrow" alt="<<" />
+        back to search results
+      </a>
+
+    </div>
+
+    <div class="mid">
+
+      <div class="leftcontent">
+        <h1>
+		<%= @recipe.title %>
+        </h1>
+
+        <div class="mainimage" style="background:url(curryimg.png);">
+          <div class="titleimg"><%= @recipe.title %></div>
+        </div>
+
+        <ul class="recipe_tabs">
+          <li class="selected" id="direction_li">
+            <a href="#" name="direction_link">Directions</a>
+          </li>
+          <li  id="ingredient_li">
+            <a href="#" name="ingredient_link">Ingredients</a>
+          </li>
+        </ul>
+        <div class="tabcontent" id="direction_div">
+          	<%= @recipe.directions %>
+        </div>
+        <div class="tabcontent" style="display:none" id="ingredient_div">
+          <% @recipe.ingredients.each do |i| %>
+          <div style="float:left;width:100%;">
+            <div style="float:left;width:80px"><%= i.amount.floor == i.amount ? i.amount.to_i : i.amount unless i.amount.blank?%>&nbsp;</div>
+            <div style="float:left;width:80px"><%= i.unit%>&nbsp;</div>
+            <div style="float:left;width:400px"><%= i.ingredient %></div>
+          </div>
+
+              <br/>
+          <%end%>
+        </div>
+
+      </div>
+
+    </div>
+    <div class="foot"></div>
+
+  </div>
+  <script type="text/javascript">
+  $("a[name=direction_link]").live('click', function (){
+    $("div#direction_div").show();
+    $("div#ingredient_div").hide();
+    $("li#direction_li").addClass("selected")
+    $("li#ingredient_li").removeClass("selected")
+    return false;
+
+  });
+    $("a[name=ingredient_link]").live('click', function (){
+    $("div#ingredient_div").show();
+    $("div#direction_div").hide();
+    $("li#ingredient_li").addClass("selected")
+    $("li#direction_li").removeClass("selected")
+    return false;
+
+  });
+
+  </script>
+
+
+</div>
