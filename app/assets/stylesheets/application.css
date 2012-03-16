@@ -782,7 +782,7 @@ second page
 .logincontainer h1{text-align:left}
 
 .logincontainer{
-    background:url(../images/logincover.png) no-repeat center top #eee
+    background:url(logincover.png) no-repeat center top #eee
 }
 .logincontainer .or{
 
@@ -846,7 +846,7 @@ second page
     border-bottom: 1px solid #999;
 }
 .popup .resetpassword{
-    background: url(../images/resetpassword.png) no-repeat center top
+    background: url(resetpassword.png) no-repeat center top
 
         transparent;
     width: 143px;
