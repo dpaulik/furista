@@ -820,7 +820,39 @@ background-color:
 background-image: url(/assets/close.png);
 }
 
+.popup .whitebg_reset {
+    background-color: white;
+    border-bottom: 1px solid #999999;
+    float: left;
+    padding: 2% 5%;
+    width: 585px;
+}
+
 .popup #user_email {
+    background-color: #FBFBFB;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px 5px 5px 5px;
+    font-size: 24px;
+    margin: 8px 0;
+    padding: 2px 5px;
+    text-align: left;
+    text-indent: 3px;
+    width: 440px;
+    float:left;
+}
+.popup #user_password {
+    background-color: #FBFBFB;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px 5px 5px 5px;
+    font-size: 24px;
+    margin: 8px 0;
+    padding: 2px 5px;
+    text-align: left;
+    text-indent: 3px;
+    width: 440px;
+    float:left;
+}
+.popup #user_password_confirmation {
     background-color: #FBFBFB;
     border: 1px solid #CCCCCC;
     border-radius: 5px 5px 5px 5px;
@@ -1131,4 +1163,12 @@ ul.modal_details li#caption_div div.modal_content a {
 
 ul.modal_details li#caption_div div.modal_content a:hover {
     color:rgba(186, 81, 127,.9);
+}
+.notice
+{
+    color: green;
+}
+.alert
+{
+    color: red;
 }
