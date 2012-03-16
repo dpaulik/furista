@@ -1,10 +1,11 @@
-<div>
+
 <div class="popup">
 <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
+  <div style="float:left">
   <%= devise_error_messages! %>
-
+</div>
         <div class='heading'>
-          <a href="#" onclick ="$.modal.close();return false;">     <img class="close" src="/assets/modal-x.png" /></a>
+        
           Reset Password
         </div>
         <div class='whitebg'>
@@ -15,9 +16,20 @@
         </div>
         <div class='foot'>
           <%= f.submit "", :class  => "resetpassword" %>
-          <a href="#" onclick ="$.modal.close();return false;">Cancel</a>
+          <%#*<a href="#" onclick ="$.modal.close();return false;">Cancel</a>%>
         </div>
 <% end %>
 </div>
 
-</div>
+<style>
+  #error_explanation ul{
+   list-style: none;
+   margin-left: 5px;
+  }
+  #error_explanation
+  {
+    margin-bottom: 10px;
+    margin-left: 32px;
+  }
+
+</style>
