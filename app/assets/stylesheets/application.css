@@ -811,8 +811,8 @@ border-radius: 10px 10px 10px 10px;
 padding: 25px 0;
 width: 650px;
 z-index: 200;
-position: absolute;
-top: -50px;
+position: fixed;
+top: 110px;
 left: 50%;
 margin-left: -325px;
 background-color:
@@ -885,8 +885,8 @@ background-image: url(/assets/close.png);
     filter: alpha(opacity=5) !important;
 }
 
-#simplemodal-container a.modalCloseImg {
-    background:url(modal-x.png) no-repeat; /* adjust url as required */
+/*#simplemodal-container a.modalCloseImg {
+    background:url(modal-x.png) no-repeat;  adjust url as required 
     cursor: hand;
     width:25px;
     height:29px;
@@ -896,7 +896,7 @@ background-image: url(/assets/close.png);
     top:0;
     right:0;
     cursor:pointer;
-}
+}*/
 
 .simplemodal-container {
     padding: 10px;
