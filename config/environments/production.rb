@@ -12,7 +12,7 @@ Furista::Application.configure do
   config.serve_static_assets = false
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
-  config.action_mailer.default_url_options = { :host => 'hollow-mountain-6617.herokuapp.com/' }
+  config.action_mailer.default_url_options = { :host => 'hollow-mountain-6617.herokuapp.com' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.raise_delivery_errors = true
   ActionMailer::Base.smtp_settings = {
