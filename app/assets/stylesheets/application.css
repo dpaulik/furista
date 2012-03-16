@@ -804,20 +804,19 @@ second page
     left: 0;
 }
 
-.popup{
-    border: 2px solid #999;
+ .popup {
+    background-color: #EEEEEE;
+    border: 2px solid #999999;
     border-radius: 10px 10px 10px 10px;
-    padding: 25px 0;
-    width: 650px;
-    z-index: 200;
-    position: absolute;
-    top: 140px;
     left: 50%;
     margin-left: -325px;
-    background-color: #EEE;
+    padding: 25px 0;
+    position: absolute;
+    top: 10px;
+    width: 650px;
+    z-index: 200;
 }
-
-.popup input[type=text] {
+.popup #user_email {
     background-color: #FBFBFB;
     border: 1px solid #CCCCCC;
     border-radius: 5px 5px 5px 5px;
@@ -827,8 +826,11 @@ second page
     text-align: left;
     text-indent: 3px;
     width: 440px;
-    float:right;
+float:right;
 }
+
+
+
 .popup .heading{
     float: left;
     width: 90%;
@@ -1120,7 +1122,7 @@ ul.modal_details li div.modal_content ul.tagit li.tagit-new {
 }
 
 .button_interstitial {
-    background-image: url('/images/small_uploader.gif');
+    background-image: url('small_uploader.gif');
     background-repeat: no-repeat;
     float: right;
     height: 10px;
