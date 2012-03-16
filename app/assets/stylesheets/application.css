@@ -830,6 +830,7 @@ background-image: url(/assets/close.png);
     text-align: left;
     text-indent: 3px;
     width: 440px;
+    float:left;
 }
 
 
