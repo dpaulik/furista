@@ -58,7 +58,7 @@ class ServicesController < ApplicationController
                   redirect_to "/"
                 end
                 flash[:myinfo] = 'Your account on CommunityGuides has been created via ' + provider.capitalize + '. In your profile you can change your personal information and add a local password.'
-                return sign_in_and_redirect(:user, user)
+#                sign_in_and_redirect(:user, user)
               end
             else
               flash[:notice] = service_route.capitalize + ' can not be used to sign-up on CommunityGuides as no valid email address has been provided. Please use another authentication provider or use local sign-up. If you already have an account, please sign-in and add ' + service_route.capitalize + ' from your profile.'
