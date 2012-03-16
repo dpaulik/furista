@@ -891,6 +891,12 @@ background-image: url(/assets/close.png);
     height: 33px;
     float:left;
 }
+.popup .changepassword{
+    background: url(changepassword.png) no-repeat center top transparent;
+    width: 143px;
+    height: 33px;
+    float:left;
+}
 .popup .foot{float:left;width:90%;padding:2% 5% 0;}
 
 .popup .foot a {
