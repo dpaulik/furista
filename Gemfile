@@ -8,6 +8,7 @@ gem 'devise'
 gem "omniauth-facebook"
 gem 'omniauth-twitter'
 gem "omniauth"
+gem "pg"
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
