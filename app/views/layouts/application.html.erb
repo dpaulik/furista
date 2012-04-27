@@ -1,31 +1,26 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <title>Furitsa</title>
-    <%= stylesheet_link_tag    :application %>
-    <%= javascript_include_tag :application %>
-    <%= csrf_meta_tags %>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <title>Furista</title>
+    <%= stylesheet_link_tag :all %>
+    <%= javascript_include_tag 'jquery-1.5.2.min','jquery-ui-1.8.11.custom.min', 'application' %>
+    <%= javascript_include_tag "jquery.cycle.all.min" %>
+    <%= csrf_meta_tag %>
     <script type="text/javascript">
       function redirect_to_new()
       {
-        window.location = "/recipes/new"
+       window.location = "recipes/new"
       }
     </script>
   </head>
+
   <body>
     <div class="container">
       <div class="header">
-
         <input type="button" class="yellowbutton" value="Post your recipe" onclick="redirect_to_new();"  />
-        <ul class="topleftlinks">
-          <%= render 'devise/menu/login_items' %>
-          <%= render 'devise/menu/registration_items' %>
-        </ul>
-        <a href="/"><img class="logo" src="/assets/logo.png" alt="Furista" /></a>
+        <a href="/"><img class="logo" src="/images/logo.png" alt="Furista" /></a>
       </div>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-
       <%= yield %>
     </div>
   </body>

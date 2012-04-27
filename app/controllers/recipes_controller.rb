@@ -4,15 +4,35 @@ class RecipesController < ApplicationController
     if params[:sort].blank? || params[:sort] == "Newest"
       order = "created_at DESC"
     elsif params[:sort] == "A-Z"
-      order = "name ASC"
+      order = "title ASC"
     elsif params[:sort] == "Z-A"
-      order = "name DESC"
+      order = "title DESC"
     end
      
     if params[:q].blank?
       @recipes = Recipe.order(order).paginate:per_page => 20, :page => params[:page]
     else
       @recipes = Recipe.order(order).search_for(params[:q]).paginate :per_page => 20, :page => params[:page]
+    end
+    
+    unless params[:supermarket] == "Alle"
+      @recipes.each do |recipe|
+        recipe.ingredients.each do |ingredient|
+          result =  Product.connection.execute %Q{
+          select * from ingredients_products where ingredient_id = #{ingredient.id}
+        
+          }
+          found  = false
+          result.each do |r|
+            
+            found = true
+          end
+          unless found
+            @recipes = @recipes.reject{ |a| recipe.id == a.id}
+            break
+          end
+        end
+      end
     end
 
     if params[:page].blank? || params[:page] == "1"

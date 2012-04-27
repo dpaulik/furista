@@ -2,7 +2,7 @@
   <div class="postboxholder">
 
     <div class="imgholder">
-      <img src="/assets/post_recipe_img.png" />
+      <img src="/images/post_recipe_img.png" />
     </div>
 
     <h1>Post you Recipe.</h1>
@@ -12,7 +12,7 @@
     </p>
 
     <div class="greybox">
-      <%= form_for @recipe, :html => {:onsubmit=> 'return validate();'} do |f|%>
+      <% form_for @recipe, :html => {:onsubmit=> 'return validate();'} do |f|%>
         <%= raw(errors_for(@recipe))  %>
         <div class="upperfileds">
           <div class="topfieldholder">
@@ -63,7 +63,7 @@
             </div>
           <%end%>
           <div class="singleunit" style="float:none">
-            <a href="#" name="addRow"><img src="/assets/addmore.png" alt="Add"/></a>
+            <a href="#" name="addRow"><img src="/images/addmore.png" alt="Add"/></a>
           </div>
         </div>
 

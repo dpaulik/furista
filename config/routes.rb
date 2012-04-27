@@ -1,15 +1,4 @@
 Furista::Application.routes.draw do
-  match '/auth/:provider/callback' => 'services#create'
-  match '/auth/facebook/callback' => 'services#create'
-  devise_for :users
-  devise_for :users do
-    get '/users/sign_out' => 'devise/sessions#destroy'
-    get '/users/register' => 'devise/registrations#first'
-  end
-  get "home/index"
-  resources :services do
-    get "/services/create/:id" => "services#create"
-  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -22,8 +11,10 @@ Furista::Application.routes.draw do
   # This route can be invoked with purchase_url(:id => product.id)
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
 
+  root :to => "homepage#index"
+  resources :recipes
+  
   # Sample resource route with options:
   #   resources :products do
   #     member do
@@ -35,8 +26,7 @@ Furista::Application.routes.draw do
   #       get 'sold'
   #     end
   #   end
-  root :to => "home#index"
-  resources :recipes
+
   # Sample resource route with sub-resources:
   #   resources :products do
   #     resources :comments, :sales
@@ -60,7 +50,7 @@ Furista::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  
 
   # See how all your routes lay out with "rake routes"
 

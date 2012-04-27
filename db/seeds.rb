@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 recipe = Recipe.new
 recipe.title =  "Schwarze Spaghetti mit Scampisugo"
 recipe.servings = 4

@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Furista::Application.config.secret_token = '5092fc5a5cdbc96bbcf51818749ac4a428a18a9ecc38a6e43035c93882fe75c623bf61d17fb46ed93ca4f9dbc6e06b51d450d28ecd46eb720d969fcb0774ad1f'
+Furista::Application.config.secret_token = '388fb45be22a7bd07a6b713a876172f03b4e5ab67e1da55dc3df403a0a4a469aa297f31f3cb9c08fb39f81f55dccc91a67d1e3a9dde3ea74ddaccd5d7d204d36'

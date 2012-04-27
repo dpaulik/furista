@@ -1,26 +1,32 @@
-<img src="/assets/Ingredient1.jpg" class="bannerimg" />
+<img src="images/Ingredient1.jpg" class="bannerimg" />
 
 <div class="search_result_container">
+  <script type="text/javascript">
+    function make_blank(textbox)
+    {
+      textbox.value ="";
+    }
+  </script>
   <div class="head">
-    <img src="/assets/button.png" class="view" alt="Search" />
+    <img src="images/button.png" class="view" alt="Search" />
     <div class="homesearchholder">
       <%= form_tag recipes_path, :method => :get, :class => 'recipe_search', :id => "search_form" do %>
-        <%= text_field_tag :q, params[:q], :type => 'text', :placeholder => "Search" %>
+        <%= text_field_tag :q, params[:q].blank? ? "Search" : params[:q], :type => 'text', :onclick => "make_blank(this);" %>
         <%= submit_tag '' %>
       
     </div>
   </div>
-
-  <div class="mid">
-    <div class="resultheading">
+  <div style="float:left">
+  <div class="mid" style="width:76%;background:none">
+    <div class="resultheading" style="border: 1px solid #D8D8D8">
       <span class="lightgreyfont">
         Sort by:  <%= select_tag "sort", options_for_select([ "Newest", "A-Z", "Z-A" ], params[:sort]), :onchange => ("$('#search_form').submit()") %>
-       <%= @recipes.total_entries %> Recipes
+       <%= @recipes.count %> Recipes
       </span>
     </div>
-    <% end %>
+    
     <%if @recipes.blank?%>
-      <div class="resultentry">
+      <div class="resultentry" style="border: 1px solid #D8D8D8">
         <div style="margin:10px">
           No Record Found
         </div>
@@ -29,7 +35,7 @@
     <% @recipes.each do |r| %>
       <div class="resultentry">
         <div class="imgholder">
-          <img src="/assets/foodimg.png" />
+          <img src="images/foodimg.png" />
         </div>
         <div class="recipe_detail_holder">
           <h3>
@@ -43,14 +49,14 @@
       </div>
     <%end%>
 
-    <div class="main_pagination">
+    <div class="main_pagination" style="border: 1px solid #D8D8D8">
 
       <b>
-        <% unless @recipes.total_entries == 0 %>
-          <%if @recipes.total_entries <= 20%>
-            <%= "#{@recipes.total_entries} recipes" %>
+        <% unless @recipes.count == 0 %>
+          <%if @recipes.count <= 20%>
+            <%= "#{@recipes.count} recipes" %>
           <%else%>
-            <%= "#{@starting} - #{@ending} of #{@recipes.total_entries} recipes" %>
+            <%= "#{@starting} - #{@ending} of #{@recipes.count} recipes" %>
           <%end%>
         <%end %>
       </b>
@@ -58,7 +64,13 @@
     </div>
 
   </div>
+  <div style="float:left">
+    Supermarket:
+    <br/>
+    <%= select_tag "supermarket", options_for_select([ "Alle", "Aldi Nord"], params[:supermarket]), :onchange => ("$('#search_form').submit()") %>
+  </div>
+  </div>
   <div class="foot"></div>
 
 </div>
-
+<% end %>
