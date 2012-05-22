@@ -3,18 +3,18 @@ development:
   hostname: localhost
   database: furista_development
   username: root
-  password: "123"
+  password: "mahheki"
 
 test:
   adapter: mysql2
   hostname: localhost
   database: furista_test
   username: root
-  password: "123"
+  password: "mahheki"
 
 cucumber:
   adapter: mysql2
   hostname: localhost
   database: furista_test
   username: root
-  password: "123"
+  password: "mahheki"

@@ -133,7 +133,7 @@ height: 50px;
      border-radius: 10px 10px 10px 10px;
      float: left;
      margin-top: 20px;
-     padding: 20px 20px 50px;
+     padding: 20px 50px 50px;
      width: 580px;
 }
 
@@ -539,4 +539,25 @@ padding: 0pt 7px;
 a{
     color: #1C94C9;
     text-decoration: none;
+}
+.textInput span {
+    background: url("/images/error.png") no-repeat scroll 0 0 transparent;
+    display: block;
+    margin: -5px 0 0 -300px;
+    opacity: 0;
+    position: absolute;
+    width: 200px;
+}
+.textInput span, .textInput label.error {
+    height: 54px;
+}
+.textInput label.error {
+    color: #FFFFFF !important;
+    display: table-cell;
+    font-size: 14px;
+    line-height: 18px;
+    padding: 0 30px 0 15px;
+    text-shadow: 0 -1px 0 #EE9292;
+    vertical-align: middle;
+    width: 170px;
 }

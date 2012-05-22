@@ -15,10 +15,11 @@
 
       <div class="leftcontent">
         <h1>
-		<%= @recipe.title %>
+          <%= @recipe.title %>
+          
         </h1>
-
-        <div class="mainimage" style="background:url(/images/curryimg.png);">
+        
+        <div class="mainimage" style="background:url(<%=@recipe.photo.url(:large)%>) no-repeat scroll 0 0 transparent;">
           <div class="titleimg"><%= @recipe.title %></div>
         </div>
 
@@ -31,17 +32,18 @@
           </li>
         </ul>
         <div class="tabcontent" id="direction_div">
-          	<%= @recipe.directions %>
+          <%= raw(@recipe.directions.gsub(/\n/, '<br>')) %>
         </div>
         <div class="tabcontent" style="display:none" id="ingredient_div">
-          <% @recipe.ingredients.each do |i| %>
-          <div style="float:left;width:100%;">
-            <div style="float:left;width:80px"><%= i.amount.floor == i.amount ? i.amount.to_i : i.amount unless i.amount.blank?%>&nbsp;</div>
-            <div style="float:left;width:80px"><%= i.unit%>&nbsp;</div>
-            <div style="float:left;width:400px"><%= i.ingredient %></div>
-          </div>
+          <% @recipe.ingredient_recipes.each do |i| %>
 
-              <br/>
+            <div style="float:left;width:100%;">
+              <div style="float:left;width:80px"><%= i.amount.floor == i.amount ? i.amount.to_i : i.amount unless i.amount.blank?%>&nbsp;</div>
+              <div style="float:left;width:80px"><%= i.unit%>&nbsp;</div>
+              <div style="float:left;width:400px"><%= i.ingredient.ingredient %></div>
+            </div>
+
+            <br/>
           <%end%>
         </div>
 
@@ -52,22 +54,22 @@
 
   </div>
   <script type="text/javascript">
-  $("a[name=direction_link]").live('click', function (){
-    $("div#direction_div").show();
-    $("div#ingredient_div").hide();
-    $("li#direction_li").addClass("selected")
-    $("li#ingredient_li").removeClass("selected")
-    return false;
+    $("a[name=direction_link]").live('click', function (){
+      $("div#direction_div").show();
+      $("div#ingredient_div").hide();
+      $("li#direction_li").addClass("selected")
+      $("li#ingredient_li").removeClass("selected")
+      return false;
 
-  });
+    });
     $("a[name=ingredient_link]").live('click', function (){
-    $("div#ingredient_div").show();
-    $("div#direction_div").hide();
-    $("li#ingredient_li").addClass("selected")
-    $("li#direction_li").removeClass("selected")
-    return false;
+      $("div#ingredient_div").show();
+      $("div#direction_div").hide();
+      $("li#ingredient_li").addClass("selected")
+      $("li#direction_li").removeClass("selected")
+      return false;
 
-  });
+    });
 
   </script>
 

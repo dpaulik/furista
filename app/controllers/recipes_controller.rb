@@ -60,15 +60,15 @@ class RecipesController < ApplicationController
   def create
     @recipe  = Recipe.new(params[:recipe])
     if @recipe.save
-      ingredient = Ingredient.new(params[:ingredient])
-      ingredient.recipe = @recipe
-      ingredient.save
+      ingredient_recipe = IngredientRecipe.new(:ingredient_id => params[:ingredient][:ingredient], :recipe_id => @recipe.id, :amount => params[:ingredient][:amount], :unit => params[:ingredient][:unit])
+      ingredient_recipe.save
+      
       params.each do | key, value |
         if key =~ /^extraingredient_ingredient_(.*)$/
           id = key.match(/^extraingredient_ingredient_(.*)$/)[1]
-          i = Ingredient.new(:ingredient => value, :amount => params["extraingredient_amount_#{id}"], :unit => params["extraingredient_unit_#{id}"])
-          i.recipe = @recipe
-          i.save
+          ingredient = Ingredient.find_by_ingredient value
+          ingredient_recipe = IngredientRecipe.new(:ingredient_id => ingredient.id, :recipe_id => @recipe.id, :amount => params["extraingredient_amount_#{id}"], :unit => params["extraingredient_unit_#{id}"])
+          ingredient_recipe.save
         end
       end
       flash[:notice] = "Recipe added successfully"

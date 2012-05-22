@@ -1,14 +1,10 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.9'
-
+gem 'mysql2'
 gem 'will_paginate', "~> 3.0.pre2"
-gem 'mysql2', '< 0.3'
-gem 'devise'
-gem "omniauth-facebook"
-gem 'omniauth-twitter'
-gem "omniauth"
-gem "pg"
+gem 'paperclip'
+gem 'aws-sdk'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
