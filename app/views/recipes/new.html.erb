@@ -12,8 +12,8 @@
     </p>
 
     <div class="greybox">
-      <% form_for @recipe, :html => {:onsubmit=> 'return validate();', :multipart => true} do |f|%>
-        <%= raw(errors_for(@recipe))  %>
+      <%= form_for @recipe, :html => {:onsubmit=> 'return validate();', :multipart => true} do |f|%>
+        
         <div class="upperfileds">
           <div class="topfieldholder">
 
