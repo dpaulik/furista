@@ -1,15 +1,69 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.9'
-gem 'mysql2'
-gem 'will_paginate', "~> 3.0.pre2"
-gem 'paperclip'
-gem 'aws-sdk'
+gem 'rails', '3.1.3'
 
 # Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
+# gem 'rails',     :git => 'git://github.com/rails/rails.git'
+#gem 'jruby-rack', '1.0.10'
+gem 'json' #important, was not set as a dependency, so I add it manually
+gem 'google_currency'
+gem 'money'
+gem 'mysql2'
+gem 'devise'
+gem 'cancan'
+gem 'rolify'
+gem "delayed_job"
+gem 'delayed_job_active_record'
 
+gem 'rest-client'
+gem 'json'
+gem 'magic_encoding'
+# Bundle edge Rails instead:
+# gem 'rails', :git => 'git://github.com/rails/rails.git'
+gem "omniauth-facebook"
+gem 'omniauth-twitter'
+gem "omniauth"
+gem 'crack'
+gem 'uuidtools'
+gem 'execjs'
+gem 'therubyracer'
+gem "bcrypt-ruby"
+#gem "webbynode", "~> 1.0.5.2"
+#gem "geokit-rails3-1beta --pre"
+gem 'nokogiri'
+gem 'feedzirra'
+gem 'sanitize'
+gem "paperclip", "~> 2.7"
+gem 'dm-core'
+gem 'dm-aggregates'
+#gem 'formtastic'
+#gem "geocoder"
+gem "ckeditor"
 #gem 'sqlite3'
+gem 'hpricot'
+gem 'pg'
+gem "will_paginate", "~> 3.0.pre2"
+gem 'i18n'
+gem 'contacts'
+gem 'gdata', :git => 'https://github.com/agentrock/gdata.git'
+# Gems used only for assets and not required
+# in production environments by default.
+group :assets do
+  gem 'sass-rails',   '~> 3.1.5'
+  gem 'coffee-rails', '~> 3.1.1'
+  gem 'uglifier', '>= 1.0.3'
+end
+gem 'stripe'
+gem 'clickatell'
+gem 'jquery-rails'
+gem 'rails3-jquery-autocomplete'
+#gem 'gmaps4rails'
+gem 'aws-sdk'
+gem 'acts-as-messageable'
+gem 'acts_as_commentable'
+
+# To use ActiveModel has_secure_password
+# gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -17,19 +71,10 @@ gem 'aws-sdk'
 # Deploy with Capistrano
 # gem 'capistrano'
 
-# To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
-# gem 'ruby-debug'
+# To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
-# Bundle the extra gems:
-# gem 'bj'
-# gem 'nokogiri'
-# gem 'sqlite3-ruby', :require => 'sqlite3'
-# gem 'aws-s3', :require => 'aws/s3'
-
-# Bundle gems for the local environment. Make sure to
-# put test-only gems in this group so their generators
-# and rake tasks are available in development mode:
-# group :development, :test do
-#   gem 'webrat'
-# end
+group :test do
+  # Pretty printed test output
+  gem 'turn', '0.8.2', :require => false
+end
