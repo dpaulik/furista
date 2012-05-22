@@ -35,7 +35,7 @@
     <% @recipes.each do |r| %>
       <div class="resultentry">
         <div class="imgholder">
-          <img src="images/foodimg.png" />
+          <img src="<%=r.photo.url(:thumb)%>" />
         </div>
         <div class="recipe_detail_holder">
           <h3>
