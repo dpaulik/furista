@@ -13,7 +13,12 @@ Furista::Application.routes.draw do
   # Sample resource route (maps HTTP verbs to controller actions automatically):
 
   root :to => "homepage#index"
-  resources :recipes
+  resources :recipes do
+    get :autocomplete_ingredient_ingredient, :on => :collection
+    collection do
+      get 'add_ingredient'
+    end
+  end
   
   # Sample resource route with options:
   #   resources :products do

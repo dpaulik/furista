@@ -3,7 +3,7 @@
  * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
  * the top of the compiled file, but it's generally better to create a new file per style scope.
  *= require_self
- *= require_tree . 
+ *= require_tree .
 */
 
 ul.hmenu {
@@ -804,20 +804,20 @@ second page
     left: 0;
 }
 
- .popup {
-border: 2px solid
-#999;
-border-radius: 10px 10px 10px 10px;
-padding: 25px 0;
-width: 650px;
-z-index: 200;
-position: fixed;
-top: 110px;
-left: 50%;
-margin-left: -325px;
-background-color:
-#EEE;
-background-image: url(/assets/close.png);
+.popup {
+    border: 2px solid
+        #999;
+    border-radius: 10px 10px 10px 10px;
+    padding: 25px 0;
+    width: 650px;
+    z-index: 200;
+    position: fixed;
+    top: 110px;
+    left: 50%;
+    margin-left: -325px;
+    background-color:
+        #EEE;
+    background-image: url(/assets/close.png);
 }
 
 .popup .whitebg_reset {

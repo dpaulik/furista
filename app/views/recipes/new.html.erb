@@ -13,7 +13,7 @@
 
     <div class="greybox">
       <%= form_for @recipe, :html => {:onsubmit=> 'return validate();', :multipart => true} do |f|%>
-        
+
         <div class="upperfileds">
           <div class="topfieldholder">
 
@@ -39,31 +39,11 @@
         <div class="ingredientunit">
           <%= fields_for :ingredient do |i| %>
             <div id="repeat_row">
-              <div class="singleunit">
-                <label>
-                  Ingredient
-                </label>
-                                <%= i.select( :ingredient, options_from_collection_for_select(Ingredient.all,:id, :ingredient) ) %>
-              </div>
-              <div class="singleunit">
-                <label>
-                  Amount
-                </label>
-                <%= i.text_field :amount, :onkeypress => "return isNumberKey(event)" %>
-              </div>
-              <div class="singleunit">
-                <label>
-                  Unit
-                </label>
-                <%= i.text_field :unit %>
-              </div>
-              <div>
-
-              </div>
+              <%= render :partial => "ingredient" %>
             </div>
           <%end%>
           <div class="singleunit" style="float:none">
-            <a href="#" name="addRow"><img src="/images/addmore.png" alt="Add"/></a>
+            <%= link_to image_tag("addmore.png"), add_ingredient_recipes_path, :remote => true %>
           </div>
         </div>
 
@@ -76,7 +56,7 @@
 
         <div class="browsfld">
           <%= f.file_field :photo %>
-          <%#*<input type="text"  /> <input type="button" />%>
+  <%#*<input type="text"  /> <input type="button" />%>
 
         </div>
         <div class="topfieldholder">
@@ -86,10 +66,10 @@
           </label>
           <%= f.text_field :email_address, :style=>"width:150px;" %>
         </div>
-      <div class="textInput" id="i_agree_error" style="display:none">
-        <span style="margin-left: -210px; opacity: 1;margin-top:405px;">
-          <label  generated="true" class="error" style="display: block;">Please accept terms and conditions</label>
-        </span>
+        <div class="textInput" id="i_agree_error" style="display:none">
+          <span style="margin-left: -210px; opacity: 1;margin-top:405px;">
+            <label  generated="true" class="error" style="display: block;">Please accept terms and conditions</label>
+          </span>
         </div>
         <div class="agreeholder">
           <%= f.check_box :i_agree %>
@@ -102,7 +82,7 @@
   </div>
 </div>
 <script type="text/javascript">
-    function isNumberKey(evt)
+  function isNumberKey(evt)
   {
     var charCode = (evt.which) ? evt.which : event.keyCode
     if (charCode > 31 && (charCode < 48 || charCode > 57))
@@ -133,17 +113,5 @@
     }
     
   }
-
-</script>
-<script type="text/javascript">
-  $("a[name=addRow]").live('click', function (){
-    number = Math.floor(Math.random()*1000)
-    str = ""
-      <% Ingredient.all.each do |i|  %>
-        str  += '<option id=' + '<%= i.id %>' + '>'+ '<%= i.ingredient %>' + '</option>'
-      <%end%>
-    $("div#repeat_row :last").after("<div style='float:left'><div class='singleunit'><label>Ingredient</label><select name='extraingredient_ingredient_"+ number +"'>"+str+"</select></div> <div class='singleunit'><label>Amount </label>  <input type='text' size='30' name='extraingredient_amount_"+ number +"' onkeypress='return isNumberKey(event)'></div><div class='singleunit'><label>Unit</label><input type='text' size='30' name='extraingredient_unit_"+ number +"'> </div></div><div></div>");
-    return false;
-  });
 
 </script>

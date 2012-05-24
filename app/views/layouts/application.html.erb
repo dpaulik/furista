@@ -1,16 +1,22 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Furista</title>
-    <%= stylesheet_link_tag :all %>
-    <%= javascript_include_tag 'jquery-1.5.2.min','jquery-ui-1.8.11.custom.min', 'application' %>
+    <script type='text/javascript' src='http://code.jquery.com/jquery-1.7.1.js'></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js"></script>    <!-- jsFiddle -->
+    <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/themes/base/jquery-ui.css"/> <!-- jsFiddle -->
+    <link rel="stylesheet" type="text/css" href="http://static.jquery.com/ui/css/demo-docs-theme/ui.theme.css"/> <!-- jsFiddle -->
+    <%= stylesheet_link_tag 'application' %>
+    <%= javascript_include_tag "application" %>
     <%= javascript_include_tag "jquery.cycle.all.min" %>
-    <%= csrf_meta_tag %>
+    <%= yield(:head) %>
+    <%= csrf_meta_tags %>
+
     <script type="text/javascript">
       function redirect_to_new()
       {
-       window.location = "/recipes/new"
+        window.location = "/recipes/new"
       }
     </script>
   </head>

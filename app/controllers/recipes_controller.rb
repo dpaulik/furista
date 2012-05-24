@@ -1,4 +1,6 @@
 class RecipesController < ApplicationController
+  autocomplete :ingredient, :ingredient
+  
   def index
     params[:q] = ""  if params[:q] == "What you are hungry for?" || params[:q] == "Search"
     if params[:sort].blank? || params[:sort] == "Newest"
@@ -57,20 +59,34 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new
   end
 
+  def add_ingredient
+    respond_to do |format|
+      format.js do        
+        foo = render_to_string(:partial => 'ingredient').to_json
+        render :js => "$('#repeat_row').append(#{foo});"
+      end
+    end
+  end
+
   def create
+
     @recipe  = Recipe.new(params[:recipe])
     if @recipe.save
-      ingredient_recipe = IngredientRecipe.new(:ingredient_id => params[:ingredient][:ingredient], :recipe_id => @recipe.id, :amount => params[:ingredient][:amount], :unit => params[:ingredient][:unit])
-      ingredient_recipe.save
-      
-      params.each do | key, value |
-        if key =~ /^extraingredient_ingredient_(.*)$/
-          id = key.match(/^extraingredient_ingredient_(.*)$/)[1]
-          ingredient = Ingredient.find_by_ingredient value
-          ingredient_recipe = IngredientRecipe.new(:ingredient_id => ingredient.id, :recipe_id => @recipe.id, :amount => params["extraingredient_amount_#{id}"], :unit => params["extraingredient_unit_#{id}"])
-          ingredient_recipe.save
+ 
+      params[:ingredient][:ingredient].each_with_index do | i, index |
+        unless i.blank?
+          ingredient = Ingredient.find_by_ingredient(i)
+
+          if ingredient.blank?
+            ingredient = Ingredient.create(:ingredient => i)
+            UserMailer.new_ingredient(ingredient).deliver
+          end
+          amount = params[:ingredient][:amount][index]
+          unit = params[:ingredient][:unit][index]
+          IngredientRecipe.create(:ingredient_id => ingredient.id, :recipe_id => @recipe.id, :amount => amount, :unit => unit)
         end
       end
+  
       flash[:notice] = "Recipe added successfully"
       redirect_to "/"
     else

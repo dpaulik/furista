@@ -55,6 +55,7 @@ group :assets do
 end
 gem 'stripe'
 gem 'clickatell'
+
 gem 'jquery-rails'
 gem 'rails3-jquery-autocomplete'
 #gem 'gmaps4rails'
