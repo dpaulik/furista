@@ -2,4 +2,34 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+
+    find_a_recipe: "Find a recipe"
+    browse_through: "browse through"
+    recipes: "recipes"
+    post_your_recipe: "Post your recipe"
+    what_are_you_hungry_for: "What are you hungry for"
+    Your_recipe_is_amazing_and_unique: "Your recipe is amazing and unique."
+    Share_it_with_other_so_they_can_enjoy_it_too!: "Share it with other, so they can enjoy it too! "
+    verify_your_account: "Verify your account"
+    title: "Title"
+    List_of_ingredients: "List of ingredients"
+    Servings: "Servings"
+    Ingredient: "Ingredient"
+    Amount: "Amount"
+    Unit: "Unit"
+    Directions: "Directions"
+    Email_Address: "E-Mail Address"
+    I_agree_to_the_terms_of_use: "I agree to the terms of use"
+    Sort_by: "Sort by"
+    No_Record_Found: "No Record Found"
+    Newest: "Newest"
+    Supermarket: "Supermarket"
+    number:
+       currency:
+          format:
+              format: "%u%n"
+              unit: "€"
+              # These three are to override number.format and are optional
+              separator: "."
+              delimiter: ","
+              precision: 2

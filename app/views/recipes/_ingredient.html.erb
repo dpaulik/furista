@@ -1,18 +1,18 @@
 <div class="singleunit">
   <label>
-    Ingredient
+    <%= t(:Ingredient)%>
   </label>
   <%= autocomplete_field_tag "ingredient[ingredient][]", "", autocomplete_ingredient_ingredient_recipes_path, :placeholder => "Ingredient", :size => "60" %>
 </div>
 <div class="singleunit">
   <label>
-    Amount
+    <%=t(:Amount)%>
   </label>
   <%= text_field_tag "ingredient[amount][]", "",:onkeypress => "return isNumberKey(event)" %>
 </div>
 <div class="singleunit">
   <label>
-    Unit
+    <%=t(:Unit)%>
   </label>
   <%= text_field_tag "ingredient[unit][]" %>
 </div>

@@ -20,15 +20,15 @@
   <div class="mid" style="width:76%;background:none">
     <div class="resultheading" style="border: 1px solid #D8D8D8">
       <span class="lightgreyfont">
-        Sort by:  <%= select_tag "sort", options_for_select([ "Newest", "A-Z", "Z-A" ], params[:sort]), :onchange => ("$('#search_form').submit()") %>
-       <%= @recipes.count %> Recipes
+        <%= t(:Sort_by)%>:  <%= select_tag "sort", options_for_select([ "#{t(:Newest)}", "A-Z", "Z-A" ], params[:sort]), :onchange => ("$('#search_form').submit()") %>
+       <%= @recipes.count %> <%= t(:recipes)%>
       </span>
     </div>
     
     <%if @recipes.blank?%>
       <div class="resultentry" style="border: 1px solid #D8D8D8">
         <div style="margin:10px">
-          No Record Found
+          <%=t (:No_Record_Found)%>
         </div>
       </div>
     <%end%>
@@ -65,7 +65,7 @@
 
   </div>
   <div style="float:left">
-    Supermarket:
+    <%= t(:Supermarket)%>:
     <br/>
     <%= select_tag "supermarket", options_for_select([ "Alle", "Aldi Nord"], params[:supermarket]), :onchange => ("$('#search_form').submit()") %>
   </div>

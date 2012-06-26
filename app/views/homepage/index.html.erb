@@ -2,16 +2,16 @@
 
   <div class="leftside">
     <h1>
-						Find a recipe
+      <%= t(:find_a_recipe) %>
     </h1>
     <h4>
-						browse through <b><%= @recipes.size %> recipes</b>
+						<%= t(:browse_through) %><b><%= @recipes.size %> <%= t(:recipes)%></b>
     </h4>
 
     <script type="text/javascript">
       function make_blank(textbox)
       {
-        textbox.value ="";
+      textbox.value ="";
       }
     </script>
 
@@ -19,7 +19,7 @@
 
     <div class="landingsearchholder">
       <%= form_tag recipes_path, :method => :get, :class => 'recipe_search' do %>
-        <%= text_field_tag :q, params[:q], :type => 'text', :value => "What you are hungry for?", :size => 80, :onclick => "make_blank(this);"%>
+        <%= text_field_tag :q, params[:q], :type => 'text', :value => "#{t(:what_are_you_hungry_for)}", :size => 80, :onclick => "make_blank(this);"%>
         <%= submit_tag '' %>
       <% end %>
 
@@ -28,21 +28,21 @@
   </div>
 
   <div style="border: 1px solid #D0D0D0;
-    float: right;
-    padding: 5px;border-radius: 5px 5px 5px 5px;">
-  <div class="homepicholder" style="width:475px">
-    <img src="images/product.png" height="320px" />
-    <img src="images/black.JPG" width="475px" height="322px" />
-    <img src="images/Methi pulav.JPG" width="475px" height="322px" />
-  </div>
+       float: right;
+       padding: 5px;border-radius: 5px 5px 5px 5px;">
+    <div class="homepicholder" style="width:475px">
+      <img src="images/product.png" height="320px" />
+      <img src="images/black.JPG" width="475px" height="322px" />
+      <img src="images/Methi pulav.JPG" width="475px" height="322px" />
     </div>
+  </div>
 
 </div>
 <script type="text/javascript">
   $(document).ready(function() {
-    $('.homepicholder').cycle({
-      fx: 'fade'
-    });
+  $('.homepicholder').cycle({
+  fx: 'fade'
+  });
   });
 </script>
 <style type="text/css">

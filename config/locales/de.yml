@@ -1,0 +1,35 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+de:
+
+    find_a_recipe: "Suchen Sie ein Rezept"
+    browse_through: "blättern Sie durch"
+    recipes: "rezepte"
+    post_your_recipe: "Posten Rezept"
+    what_are_you_hungry_for: "Was bist du hungrig nach"
+    Your_recipe_is_amazing_and_unique: "Ihr Rezept ist erstaunlich und einzigartig."
+    Share_it_with_other_so_they_can_enjoy_it_too!: "Teilen Sie sie mit anderen, so können sie es zu genießen!"
+    verify_your_account: "Überprüfen Sie Ihre Rechnung"
+    title: "Titel"
+    List_of_ingredients: "Liste der Zutaten"
+    Servings: "Portionen"
+    Ingredient: "Zutaten"
+    Amount: "Betrag"
+    Unit: "Einheit"
+    Directions: "Anfahrt"
+    Email_Address: "E-Mail Adresse"
+    I_agree_to_the_terms_of_use: "Ich stimme den Nutzungsbedingungen"
+    Sort_by: "Sortieren nach"
+    No_Record_Found: "Kein Eintrag gefunden"
+    Newest: "Neueste"
+    Supermarket: "Supermarkt"
+    number:
+       currency:
+          format:
+              format: "%u%n"
+              unit: "€"
+              # These three are to override number.format and are optional
+              separator: "."
+              delimiter: ","
+              precision: 2

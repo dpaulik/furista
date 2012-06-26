@@ -5,10 +5,9 @@
       <img src="/images/post_recipe_img.png" />
     </div>
 
-    <h1>Post you Recipe.</h1>
+    <h1><%=t(:post_your_recipe)%>.</h1>
     <p>
-	Your recipe is amazing and unique. Share it with other,<br />
-	so they can enjoy it too!
+	<%=t(:Your_recipe_is_amazing_and_unique)%><%=t(:Share_it_with_other_so_they_can_enjoy_it_too!)%>
     </p>
 
     <div class="greybox">
@@ -18,7 +17,7 @@
           <div class="topfieldholder">
 
             <label>
-              Title:
+              <%=t(:title)%>:
             </label>
             <%= f.text_field :title %>
 
@@ -27,12 +26,12 @@
 
         </div>
         <h2>
-          List of ingredients
+          <%= t(:List_of_ingredients)%>
         </h2>
         <div class="topfieldholder">
 
           <label>
-            Servings:
+            <%=t(:Servings)%>:
           </label>
           <%= f.text_field :servings, :style=>"width:70px;", :onkeypress => "return isNumberKey(event)" %>
         </div>
@@ -49,7 +48,7 @@
 
         <div class="directions">
           <label>
-            Directions
+            <%= t(:Directions)%>
           </label>
           <%= f.text_area :directions%>
         </div>
@@ -62,7 +61,7 @@
         <div class="topfieldholder">
 
           <label>
-            Email Address:
+            <%=t(:Email_Address)%>:
           </label>
           <%= f.text_field :email_address, :style=>"width:150px;" %>
         </div>
@@ -73,7 +72,7 @@
         </div>
         <div class="agreeholder">
           <%= f.check_box :i_agree %>
-          I agree to the terms of use
+          <%= t(:I_agree_to_the_terms_of_use)%>
         </div>
         <%= submit_tag "", :class => "savenc" %>
       <%end%>

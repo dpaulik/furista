@@ -9,14 +9,14 @@
     <link rel="stylesheet" type="text/css" href="http://static.jquery.com/ui/css/demo-docs-theme/ui.theme.css"/> <!-- jsFiddle -->
     <%= stylesheet_link_tag 'application' %>
     <%= javascript_include_tag "application" %>
-    
+
     <%= yield(:head) %>
     <%= csrf_meta_tags %>
 
     <script type="text/javascript">
       function redirect_to_new()
       {
-        window.location = "/recipes/new"
+      window.location = "/recipes/new"
       }
     </script>
   </head>
@@ -24,8 +24,12 @@
   <body>
     <div class="container">
       <div class="header">
-        <input type="button" class="yellowbutton" value="Post your recipe" onclick="redirect_to_new();"  />
+        <input type="button" class="yellowbutton" value="<%=t(:post_your_recipe)%>" onclick="redirect_to_new();"  />
         <a href="/"><img class="logo" src="/images/logo.png" alt="Furista" /></a>
+
+        <%= link_to "DE", {:locale => 'de'} %> |
+        <%= link_to "EN", {:locale => 'en'} %>
+
       </div>
       <%= yield %>
     </div>
