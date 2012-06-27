@@ -5,7 +5,7 @@
       <%= t(:find_a_recipe) %>
     </h1>
     <h4>
-						<%= t(:browse_through) %><b><%= @recipes.size %> <%= t(:recipes)%></b>
+      <%= t(:browse_through) %><b><%= @recipes.size %> <%= t(:recipes)%></b>
     </h4>
 
     <script type="text/javascript">
@@ -20,8 +20,9 @@
     <div class="landingsearchholder">
       <%= form_tag recipes_path, :method => :get, :class => 'recipe_search' do %>
         <%= text_field_tag :q, params[:q], :type => 'text', :value => "#{t(:what_are_you_hungry_for)}", :size => 80, :onclick => "make_blank(this);"%>
-        <%= submit_tag '' %>
-      <% end %>
+        <%= hidden_field_tag "locale", params[:locale] %>
+      <%= submit_tag '' %>
+    <% end %>
 
     </div>
 

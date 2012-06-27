@@ -6,7 +6,7 @@
     <div class="head">
       <a href="/recipes">
         <img src="/images/recipe-backarrow.png" class="backarrow" alt="<<" />
-        back to search results
+        <%= t(:back_to_search_result)%>
       </a>
 
     </div>
@@ -25,10 +25,10 @@
 
         <ul class="recipe_tabs">
           <li class="selected" id="direction_li">
-            <a href="#" name="direction_link">Directions</a>
+            <a href="#" name="direction_link"><%= t(:Directions)%></a>
           </li>
           <li  id="ingredient_li">
-            <a href="#" name="ingredient_link">Ingredients</a>
+            <a href="#" name="ingredient_link"><%= t(:Ingredients)%></a>
           </li>
         </ul>
         <div class="tabcontent" id="direction_div">

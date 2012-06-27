@@ -14,7 +14,7 @@ en:
     title: "Title"
     List_of_ingredients: "List of ingredients"
     Servings: "Servings"
-    Ingredient: "Ingredient"
+    Ingredients: "Ingredients"
     Amount: "Amount"
     Unit: "Unit"
     Directions: "Directions"
@@ -24,6 +24,9 @@ en:
     No_Record_Found: "No Record Found"
     Newest: "Newest"
     Supermarket: "Supermarket"
+    Search: "Search"
+    back_to_search_result: "back to search result"
+    Please_accept_terms_and_conditions: "Please accept terms and conditions"
     number:
        currency:
           format:
