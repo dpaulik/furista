@@ -74,7 +74,7 @@
           <%= f.check_box :i_agree %>
           <%= t(:I_agree_to_the_terms_of_use)%>
         </div>
-        <%= submit_tag "", :class => "savenc" %>
+        <%= submit_tag "", :class => "#{params[:locale] == "de" ? "savenc_gr" : "savenc"}" %>
       <%end%>
     </div>
 

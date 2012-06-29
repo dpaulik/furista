@@ -8,8 +8,8 @@
     }
   </script>
   <div class="head">
-    <img src="images/button.png" class="view" alt="Search" />
-    <div class="homesearchholder">
+    <img src="<%= params[:locale] == "de" ? "/images/button_gr.png" : "/images/button.png"%>" class="view" alt="Search" />
+    <div class="<%= params[:locale] == "de" ? "homesearchholder_gr" : "homesearchholder"%>">
       <%= form_tag recipes_path(:locale => params[:locale]), :method => :get, :class => 'recipe_search', :id => "search_form" do %>
         <%= text_field_tag :q, params[:q].blank? ? "#{t(:Search)}" : params[:q], :type => 'text', :onclick => "make_blank(this);" %>
         <%= hidden_field_tag "locale", params[:locale] %>
