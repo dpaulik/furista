@@ -27,6 +27,22 @@ en:
     Search: "Search"
     back_to_search_result: "back to search result"
     Please_accept_terms_and_conditions: "Please accept terms and conditions"
+    Signup_for: "Signup for"
+    First_Name: "First Name"
+    Last_Name: "Last Name"
+    Password: "Password"
+    Password_confirmation: "Password Confirmation"
+    We_donot_post_anything_without_your_permission: "We don't post anything without your permission"
+    Already_a_member_of: "Already a member of"
+    Log_In_now: "Log In now"
+    By_clicking_on: "By clicking on"
+    you_confirm_that_you_accept_the: "you confirm that you accept the"
+    Sign_In_to: "Sign In to"
+    Find_the_best_recipes: "Find the best recipes"
+    Remember_me_next_time: "Remember me next time"
+    Forgot_your_password?: "Forgot your password?"
+    Need_an_account: "Need an account"
+    Signup: "Signup"
     number:
        currency:
           format:

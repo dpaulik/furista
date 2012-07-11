@@ -1,19 +1,15 @@
 # -*- encoding : utf-8 -*-
-
-
 require 'pp'
 require 'net/http'
 require 'uri'
 require 'json'
 require 'cgi'
 
-
 class ApplicationController < ActionController::Base
   protect_from_forgery
   def available_locales; AVAILABLE_LOCALES; end
   helper :all
   before_filter :set_locale
-
 
   def set_locale
     p "********************************************************************"
@@ -29,7 +25,7 @@ class ApplicationController < ActionController::Base
     { :locale => I18n.locale }
   end
 
-   def translate( text, to='en', from='no' )
+  def translate( text, to='en', from='no' )
     unless params[:locale].nil?
       unless to.nil?
         case params[:locale]
@@ -63,5 +59,7 @@ class ApplicationController < ActionController::Base
       text
     end
   end
+
+ 
 
 end

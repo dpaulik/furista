@@ -1,8 +1,6 @@
 <div class="txtalcntr">
 
-  <h1>
-                	Signup for Furista
-  </h1>
+  <h1><%= t(:Signup_for)%> Furista</h1>
 
   <div class="roundedgecontainer">
 
@@ -11,29 +9,30 @@
         <%= image_tag "fb-connect-large.png", :alt => "Facebook" %>
       </a>
       <br />
-      *We don't post anything without your permission
+      * <%=  t(:We_donot_post_anything_without_your_permission)%>
     </div>
     <div class="or">or</div>
-    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :method => :POST) do |f| %>
       <%= devise_error_messages! %>
-      <%= f.text_field :first_name, :placeholder => "First Name" %>
-      <%= f.text_field :last_name, :placeholder => "Last Name" %>
-      <%= f.email_field :email, :placeholder => "Email" %>
-      <%= f.password_field :password, :placeholder => "Password" %>
-      <%= f.password_field :password_confirmation , :placeholder => "Password Confirmation"%>
+      <%= f.text_field :first_name, :placeholder => "#{t(:First_Name)}" %>
+      <%= f.text_field :last_name, :placeholder => "#{t(:Last_Name)}" %>
+      <%= f.email_field :email, :placeholder => "#{t(:Email_Address)}" %>
+      <%= f.password_field :password, :placeholder => "#{t(:Password)}" %>
+      <%= f.password_field :password_confirmation , :placeholder => "#{t(:Password_confirmation)}"%>
       <div class="createaccount">
         <%= f.submit "Comment", :type => :image, :src => "/assets/creatacount.png" %>
 
       </div>
     <% end %>
     <p>
-      By clicking on "Connect with Facebook" or "Create Account" you confirm that you accept the <a href="#">Terms of Service</a>.
+      <%=t(:By_clicking_on)%> "Connect with Facebook" or "Create Account" <%=t(:you_confirm_that_you_accept_the)%> <a href="#">Terms of Service</a>.
     </p>
 
   </div>
 
   <div class="roundedgecontainer boldfont">
-    Already a Furista member ? <%= link_to('Log In now', new_user_session_path)  %>
+    <%=t(:Already_a_member_of)%> Furista? <br/>
+    <%= link_to("#{t(:Log_In_now)}", new_user_session_path)  %>
   </div>
 
 </div>

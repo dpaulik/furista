@@ -27,6 +27,22 @@ de:
     Search: "Suchen"
     back_to_search_result: "zurück zum Suchergebnis"
     Please_accept_terms_and_conditions: "Bitte akzeptieren Sie Bedingungen und Konditionen"
+    Signup_for: "Anmeldungen für"
+    First_Name: "Vorname"
+    Last_Name: "Nachname"
+    Password: "Kennwort"
+    Password_confirmation: "Kennwort Bestätigung"
+    We_donot_post_anything_without_your_permission: "Wir wissen nichts gepostet ohne Ihre Zustimmung"
+    Already_a_member_of: "Sie sind bereits Mitglied"
+    Log_In_now: "Melde dich jetzt an"
+    By_clicking_on: "Mit einem Klick auf"
+    you_confirm_that_you_accept_the: "sie bestätigen, dass sie akzeptieren die"
+    Sign_In_to: "Anmelden, um zu"
+    Find_the_best_recipes: "Finden Sie die besten Rezepte"
+    Remember_me_next_time: "Das nächste Mal merken"
+    Forgot_your_password?: "Passwort vergessen?"
+    Need_an_account: "Benötigen Sie ein Konto"
+    Signup: "Anmeldungen"
     number:
        currency:
           format:
