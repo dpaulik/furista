@@ -1,0 +1,43 @@
+<div class="content">
+  <div class="leftside" style="margin-top:0px;">
+    <div id="profile">
+
+      <nav id="top-nav">
+        <ul>
+          <li><a href="#" style="text-decoration: none;
+                 color:#b2b2b2;
+                 margin: 2%;
+                 font: bold 28px Calibri, arial;
+                 text-align:center;"><em>Dashboard<em></em></em></a></li><em><em>
+              <li><a href="#">Nutrition Analyzer</a></li>
+              <li><a href="#">Your Recipes</a></li>
+              <li><a href="#">Inbox</a></li>
+              <li><a href="#">Profile</a></li>
+            </em></em></ul><em><em>
+          </em></em></nav><em><em>
+
+          <section id="side-window">
+
+            <img src="http://theblakeproject.typepad.com/.a/6a00d83451b74a69e20133f4efdae1970b-pi" class="crop">
+            <h1><a href="#"><%= @user.first_name %> <%= @user.last_name %></a></h1>
+            <% if @user == current_user %>
+            <p><a href="<%= edit_user_registration_path(@user.id) %>">Edit Profile</a></p>
+            <%end%>
+
+          </section>
+
+          <section id="inbox">
+
+            <h1><a href="#">Messages</a></h1>
+            <p>No Messages</p>
+
+          </section>
+
+
+        </em></em></div><em><em>
+
+
+
+      </em></em>
+  </div>
+</div>

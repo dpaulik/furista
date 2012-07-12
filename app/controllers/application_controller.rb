@@ -15,9 +15,6 @@ class ApplicationController < ActionController::Base
     p "********************************************************************"
     p params[:locale].inspect
     I18n.locale = params[:locale] || I18n.default_locale
-    p "(((((((((((((((((((((((((((((((((((((())))))))))))))))))))))))))))))))))))))"
-    p I18n.locale
-
   end
 
   def default_url_options(options={})

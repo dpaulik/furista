@@ -5,19 +5,15 @@
 						Find a recipe
     </h1>
     <h4>
-						browse through <b><%= @recipes.size %> recipes</b>
+	browse through <b><%= @recipes.size %> recipes</b>
     </h4>
-
     <div class="landingsearchholder">
       <%= form_tag recipes_path, :method => :get, :class => 'recipe_search' do %>
         <%= text_field_tag :q, params[:q], :type => 'text', :placeholder => "What you are hungry for?", :size => 80%>
         <%= submit_tag '' %>
       <% end %>
-
     </div>
-
   </div>
-
   <div style="border: 1px solid #D0D0D0;
     float: right;
     padding: 5px;border-radius: 5px 5px 5px 5px;">

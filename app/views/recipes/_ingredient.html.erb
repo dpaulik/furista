@@ -2,9 +2,9 @@
   <label>
     <%= t(:Ingredients)%>
   </label>
-  <%= autocomplete_field_tag "ingredient[ingredient][]", "", autocomplete_ingredient_ingredient_recipes_path, :placeholder => "Ingredient", :size => "60" %>
+  <%= autocomplete_field_tag "ingredient[ingredient][]", "", autocomplete_ingredient_ingredient_recipes_path, :placeholder => "Ingredient", :style=>"width:351px;" %>
 </div>
-<div class="singleunit">
+<div class="singleunit" style="margin-left: 241px">
   <label>
     <%=t(:Amount)%>
   </label>

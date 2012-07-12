@@ -43,6 +43,7 @@ en:
     Forgot_your_password?: "Forgot your password?"
     Need_an_account: "Need an account"
     Signup: "Signup"
+    Profile: "Profile"
     number:
        currency:
           format:

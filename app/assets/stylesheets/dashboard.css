@@ -4,11 +4,371 @@ Profile Window
 
 
 
+ul.hmenu {
+    list-style: none;
+    margin: 0 0 2em;
+    padding: 0;
+}
+
+ul.hmenu li {
+    display: inline;
+}
+
+
+* {
+    border: 0pt none transparent;
+    margin: 0pt;
+    padding: 0pt;
+}
+
+body {
+    background: url("bg.png") repeat-x scroll 0pt -41pt transparent;
+    font-family: Calibri,arial;
+}
+
+td {
+    font-family: Arial,Helvetica,sans-serif;
+}
+
+th {
+    font-family: Arial,Helvetica,sans-serif;
+}
+
+.container {
+    margin: 0pt auto;
+    width: 980px;
+}
+
+.header {
+    float: left;
+    height: 86px;
+    margin-bottom: 14px;
+    width: 100%;
+}
+
+.yellowbutton {
+    background: url("yellow_button.png") no-repeat scroll 0pt 0pt
+        transparent;
+    float: right;
+    font-weight: bold;
+    height: 33px;
+    padding-bottom: 5px;
+    position: relative;
+    top: 17px;
+    width: 140px;
+}
+
+.logo {
+    float: left;
+    width: 146px;
+    height: 50px;
+}
+
+.homepicholder {
+    border-radius: 5px 5px 5px 5px;
+    /*     border: 1px solid #D0D0D0;
+         float: right;
+         padding: 5px;*/
+}
+
+.leftside {
+    float: left;
+    margin-top: 70px;
+    width: 430px;
+}
+
+.leftside h1 {
+    font-size: 52px;
+}
+
+.leftside h4 {
+    color: #1C96C9;
+    float: left;
+    font-size: 16px;
+    font-weight: normal;
+    text-align: right;
+    width: 273px;
+}
+
+.homesearchholder {
+    float: left;
+    margin-top: 45px;
+}
+
+.homesearchholder input[type="text"] {
+    background: url("homesearch.png") repeat scroll 0pt 0pt transparent;
+    color: #D004D7;
+    float: left;
+    font-size: 16px;
+    height: 33px;
+    padding: 4px 10px;
+    width: 294px;
+}
+.landingsearchholder input[type="text"] {
+    background: url("homesearch.png") repeat scroll 0pt 0pt transparent;
+    color: #D004D7;
+    float: left;
+    font-size: 16px;
+    height: 33px;
+    padding: 4px 10px;
+    width: 294px;
+}
+.landingsearchholder input[type="submit"] {
+    background: url("homesearch.png") repeat scroll right top transparent;
+    float: left;
+    height: 41px;
+    width: 101px;
+}
+
+.landingsearchholder input[type="button"] {
+    background: url("homesearch.png") repeat scroll right top transparent;
+    float: left;
+    height: 41px;
+    width: 101px;
+}
+
+.controls {
+    margin-left: 385px;
+    margin-top: -32px;
+    position: absolute;
+}
+
+.postboxholder {
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 0pt 2px 5px 0pt #CCCCCC;
+    float: left;
+    padding: 20px;
+    width: 620px;
+}
+
+.postboxholder p {
+    margin-top: 10px;
+}
+
+.postboxholder .greybox {
+    background-color: #F6F6F6;
+    border-radius: 10px 10px 10px 10px;
+    float: left;
+    margin-top: 20px;
+    padding: 20px 20px 50px;
+    width: 580px;
+}
+
+.upperfileds {
+    float: left;
+    margin: 10px 0pt;
+    width: 100%;
+}
+
+.topfieldholder {
+    float: left;
+    margin: 10px 0pt;
+    width: 100%;
+}
+
+.topfieldholder label {
+    float: left;
+    line-height: 18px;
+    width: 184px;
+}
+
+.topfieldholder input[type="text"] {
+    border: 1px solid #ABAEB5;
+    height: 17px;
+    width: 163px;
+}
+
+.ingredientunit {
+    float: left;
+    margin: 10px 0pt;
+    width: 100%;
+}
+
+.singleunit {
+    float: left;
+    width: 113px;
+}
+
+.singleunit input[type="text"] {
+    border: 1px solid #ABAEB5;
+    height: 17px;
+    width: 110px;
+}
+
+.ingredientunit img {
+    float: left;
+    margin-top: 19px;
+}
+
+.browsfld {
+    float: left;
+    margin: 10px 0pt;
+    width: 100%;
+}
+
+.browsfld input[type="text"] {
+    border: 1px solid #ABAEB5;
+    float: left;
+    height: 21px;
+    width: 233px;
+}
+
+.browsfld input[type="button"] {
+    background: url("attach.png") no-repeat scroll 0pt 0pt transparent;
+    float: left;
+    height: 22px;
+    margin-left: 3px;
+    margin-top: 1px;
+    width: 82px;
+}
+
+.directions {
+    float: left;
+    margin: 10px 0pt;
+    width: 100%;
+}
+
+.directions textarea {
+    border: 1px solid #ABAEB5;
+    height: 167px;
+    width: 100%;
+}
+
+.directions label {
+    float: left;
+    font-weight: bold;
+    width: 100%;
+}
+
+.savenc {
+    background: url("post_recipe-save.png") no-repeat scroll 0pt 0pt transparent;
+    float: right;
+    height: 42px;
+    margin-top: 20px;
+    width: 196px;
+}
+
+.postboxholder h1, .postboxholder p {
+    float: left;
+}
+
+.postboxholder .imgholder {
+    background: url("post_recipe_img_holder.png") no-repeat scroll 0pt 0pt transparent;
+    float: right;
+    height: 123px;
+    width: 208px;
+}
+
+.postboxholder .imgholder img {
+    float: left;
+    margin-left: 3px;
+    margin-top: 2px;
+}
+
+.bannerimg {
+    margin: 0pt auto;
+}
+
+.search_result_container {
+    float: left;
+    margin-top: 40px;
+    width: 100%;
+}
+
+.search_result_container .head {
+    background: url("headbg.png") no-repeat scroll 0pt 0pt transparent;
+    height: 67px;
+}
+
+.search_result_container .head .view {
+    float: right;
+    margin: 14px;
+}
+
+.search_result_container .head .homesearchholder {
+    float: left;
+    margin: 10px;
+}
+
+.search_result_container .head .homesearchholder input[type="text"] {
+    background: url("greysearch.png") repeat scroll 0pt 0pt transparent;
+    height: 39px;
+    width: 308px;
+}
+
+.search_result_container .head .homesearchholder input[type="submit"] {
+    background: url("greysearch.png") repeat scroll right top transparent;
+    height: 47px;
+    width: 113px;
+}
+
+.search_result_container .mid {
+    background: url("containerbg.png") repeat scroll right top transparent;
+    float: left;
+    width: 100%;
+}
+
+.search_result_container .foot {
+    background: url("footbg.png") repeat scroll right top transparent;
+    float: left;
+    height: 18px;
+    margin-bottom: 40px;
+    width: 100%;
+}
+
+.resultentry {
+    border-bottom: 1px solid #D8D8D8;
+    float: left;
+    width: 744px;
+}
+
+.imgholder {
+    background: url("picholder.png") no-repeat scroll right top transparent;
+    float: left;
+    height: 108px;
+    margin-left: 1px;
+    margin-right: 10px;
+    width: 139px;
+}
+
+.imgholder img {
+    float: left;
+    margin-left: 13px;
+    margin-top: 14px;
+}
+
+.recipe_detail_holder {
+    float: left;
+    margin-top: 10px;
+    width: 480px;
+}
+
+.costholder {
+    float: right;
+    font-size: 42px;
+    font-weight: bold;
+    line-height: 42px;
+    margin-right: 10px;
+    margin-top: 10px;
+    text-align: center;
+    width: 80px;
+}
+
+.costholder .currency {
+    display: inline;
+    font-size: 30px;
+}
+
+.costholder .serving {
+    color: #1C94C9;
+    font-size: 12px;
+    line-height: 0px;
+}
+
 #profile {
 	width: 980px;
 	height: 650px;
 	background-color:#eeeeee;
-	margin: 70px auto;
 	-webkit-border-radius: 10px 10px 0 0;
 	-moz-border-radius:10px 10px 0 0;
 	border-radius: 10px 10px 0 0;

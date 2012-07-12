@@ -43,6 +43,7 @@ de:
     Forgot_your_password?: "Passwort vergessen?"
     Need_an_account: "Benötigen Sie ein Konto"
     Signup: "Anmeldungen"
+    Profile: "Profile"
     number:
        currency:
           format:
