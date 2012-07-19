@@ -57,13 +57,26 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
+    @units = Unit.all
   end
 
   def add_ingredient
+    @old_count = params[:count]
+    @new_count = @old_count.to_i + 1
+    @units = Unit.all
+  end
+
+  def fetch_units
+    @ingredient = Ingredient.find_by_ingredient(params[:ingredient_name].strip)
+    p "***********************************************"
+    p @ingredient.inspect
+    @units = @ingredient.units
+
     respond_to do |format|
-      format.js do        
-        foo = render_to_string(:partial => 'ingredient').to_json
-        render :js => "$('#repeat_row').append(#{foo});"
+      format.js do
+        foo = render_to_string(:partial => "units_partial", :locals => {:units => @units}).to_json
+        render :js => "$('#unit_#{params[:count]} ').html(#{foo});"
+        #        alert('Successfully Changed the Status!');
       end
     end
   end
@@ -95,7 +108,7 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @recipe  = Recipe.find params[:id]
+    @recipe  = Recipe.find_by_title params[:id]
   end
   
 end

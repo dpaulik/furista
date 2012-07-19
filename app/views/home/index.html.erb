@@ -10,6 +10,7 @@
     <div class="landingsearchholder">
       <%= form_tag recipes_path, :method => :get, :class => 'recipe_search' do %>
         <%= text_field_tag :q, params[:q], :type => 'text', :placeholder => "What you are hungry for?", :size => 80%>
+        <%= hidden_field_tag "locale", params[:locale] %>
         <%= submit_tag '' %>
       <% end %>
     </div>

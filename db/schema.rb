@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120712143123) do
+ActiveRecord::Schema.define(:version => 20120719170610) do
 
   create_table "ingredient_recipes", :force => true do |t|
     t.integer  "ingredient_id"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20120712143123) do
     t.string   "unit"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "unit_id"
   end
 
   create_table "ingredients", :force => true do |t|
@@ -48,6 +49,16 @@ ActiveRecord::Schema.define(:version => 20120712143123) do
   add_index "ingredients_recipes", ["ingredient_id"], :name => "index_ingredients_recipes_on_ingredient_id"
   add_index "ingredients_recipes", ["recipe_id"], :name => "index_ingredients_recipes_on_recipe_id"
 
+  create_table "ingredients_units", :id => false, :force => true do |t|
+    t.integer  "ingredient_id"
+    t.integer  "unit_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ingredients_units", ["ingredient_id"], :name => "index_ingredients_units_on_ingredient_id"
+  add_index "ingredients_units", ["unit_id"], :name => "index_ingredients_units_on_unit_id"
+
   create_table "products", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -67,6 +78,8 @@ ActiveRecord::Schema.define(:version => 20120712143123) do
     t.datetime "updated_at"
     t.string   "prep_time"
     t.string   "cook_time"
+    t.string   "waiting_time"
+    t.string   "short_description"
   end
 
   create_table "services", :force => true do |t|
@@ -79,9 +92,15 @@ ActiveRecord::Schema.define(:version => 20120712143123) do
     t.datetime "updated_at"
   end
 
+  create_table "units", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", :force => true do |t|
-    t.string   "email",                                 :null => false
-    t.string   "encrypted_password",                    :null => false
+    t.string   "email",                  :default => "", :null => false
+    t.string   "encrypted_password",     :default => "", :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

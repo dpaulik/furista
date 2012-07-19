@@ -1,0 +1,5 @@
+$('#add_more_<%= @old_count %>').attr('id','add_more_<%= @new_count %>');
+$('#add_more_<%= @new_count %>').html("<%= escape_javascript(render(:partial => 'add_more', :locals => {:count => @new_count})) %>");
+$('#repeat_row').append("<%= escape_javascript(render(:partial => 'ingredient', :locals => {:count => @new_count, :units => @units})) %>");
+
+

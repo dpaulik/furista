@@ -148,7 +148,7 @@ th {
     float: left;
     margin-top: 20px;
     padding: 20px 50px 50px;
-    width: 580px;
+    width: 524px;
 }
 
 .upperfileds {
@@ -172,13 +172,13 @@ th {
 .topfieldholder input[type="text"] {
     border: 1px solid #ABAEB5;
     height: 17px;
-    width: 394px;
+    width: 338px;
 }
 
 .ingredientunit {
     float: left;
     margin: 10px 0pt;
-    width: 100%;
+    width: 552px;
 }
 
 .singleunit {

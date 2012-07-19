@@ -1,6 +1,7 @@
 class Recipe < ActiveRecord::Base
   has_many :ingredient_recipes
   has_many :ingredients, :through => :ingredient_recipes
+  
   scope :search_for, lambda { | term | where("lower(title) like :term or lower(directions) like :term", :term => "%#{term.downcase}%") }
     has_attached_file :photo,
 
