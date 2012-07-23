@@ -26,7 +26,12 @@ Furista::Application.routes.draw do
       get 'add_ingredient'
     end
   end
-  
+  resources :static_pages do
+    collection do
+      get "impressum"
+      
+    end
+  end
   # Sample resource route with options:
   #   resources :products do
   #     member do

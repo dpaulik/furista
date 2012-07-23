@@ -24,6 +24,7 @@
           <input type="button" class="yellowbutton" style="margin-right:10px;" value="<%=t(:Signup)%>" onclick="redirect_to_new_user();" />
           <input type="button" class="yellowbutton"  style="margin-right:10px;" value="<%=t(:Log_In_now)%>" onclick="redirect_to_Signin();" />
         <%else%>
+          <input type="button" class="yellowbutton"  style="margin-right:10px;" value="<%=t(:Signout)%>" onclick="redirect_to_signout();" />
           <input type="button" class="yellowbutton"  style="margin-right:10px;" value="<%=t(:Profile)%>" onclick="redirect_to_profile();" />
         <%end%>
         <a href="<%= root_path %>">
@@ -104,6 +105,10 @@
   function redirect_to_profile()
   {
   window.location = "/profile/<%= current_user.id %>"
+  }
+  function redirect_to_signout()
+  {
+  window.location = "/users/sign_out"
   }
   <%end%>
 </script>

@@ -1,12 +1,27 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-33224505-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Furista</title>
+    <link rel="furista icon" href="../assets/furista_favicon.png" type="image/x-icon" />
     <script type='text/javascript' src='http://code.jquery.com/jquery-1.7.1.js'></script>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js"></script>    <!-- jsFiddle -->
     <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/themes/base/jquery-ui.css"/> <!-- jsFiddle -->
     <link rel="stylesheet" type="text/css" href="http://static.jquery.com/ui/css/demo-docs-theme/ui.theme.css"/> <!-- jsFiddle -->
+
     <%= stylesheet_link_tag 'application' %>
     <%= javascript_include_tag "application" %>
 
@@ -24,6 +39,7 @@
           <input type="button" class="yellowbutton" style="margin-right:10px;" value="<%=t(:Signup)%>" onclick="redirect_to_new_user();" />
           <input type="button" class="yellowbutton"  style="margin-right:10px;" value="<%=t(:Log_In_now)%>" onclick="redirect_to_Signin();" />
         <%else%>
+          <input type="button" class="yellowbutton"  style="margin-right:10px;" value="<%=t(:Signout)%>" onclick="redirect_to_signout();" />
           <input type="button" class="yellowbutton"  style="margin-right:10px;" value="<%=t(:Profile)%>" onclick="redirect_to_profile();" />
         <%end%>
         <a href="<%= root_path %>">
@@ -32,7 +48,14 @@
         <%= link_to "DE", "#", :onclick => "addParamToUrl('locale', 'de')" %> |
         <%= link_to "EN", "#", :onclick => "addParamToUrl('locale', 'en')" %>
       </div>
-      <%= yield %>
+      <div style="min-height:620px">
+        <%= yield %>
+      </div>
+    </div>
+    <div style="float: left;width: 99%;text-align: center;font-size: 16px;color: brown">
+      <%= link_to "Home", "/", :style => "font-size:13px;" %>
+      | <%= link_to "Impressum", impressum_static_pages_path, :style => "font-size:13px;" %> | 
+      <%= link_to "About Us", "#", :style => "font-size:13px;"  %>
     </div>
   </body>
 </html>
@@ -42,62 +65,66 @@
 
   function addParamToUrl(param, value)
   {
-    //check if param exists
-    var result = new RegExp(param + "=([^&]*)", "i").exec(window.location.search);
-    result = result && result[1] || "";
+  //check if param exists
+  var result = new RegExp(param + "=([^&]*)", "i").exec(window.location.search);
+  result = result && result[1] || "";
 
-    //added seperately to append ? before params
-    var loc = window.location;
-    var url = loc.protocol + '//' + loc.host + loc.pathname + loc.search;
+  //added seperately to append ? before params
+  var loc = window.location;
+  var url = loc.protocol + '//' + loc.host + loc.pathname + loc.search;
 
-    //param doesn't exist in url, add it
-    if (result == '')
-    {
-      //doesn't have any params
-      if (loc.search == '')
-      {
-        url += "?" + param + '=' + value;
-      }
-      else
-      {
-        url += "&" + param + '=' + value;
-      }
-    }
-    else
-    {
+  //param doesn't exist in url, add it
+  if (result == '')
+  {
+  //doesn't have any params
+  if (loc.search == '')
+  {
+  url += "?" + param + '=' + value;
+  }
+  else
+  {
+  url += "&" + param + '=' + value;
+  }
+  }
+  else
+  {
 
-      value_to = param == 'curr' ? value == 'USD' ? 'EUR' : 'USD' : value == 'de' ? 'en' : 'de';
-      value_from = param == 'curr' ? value == 'USD' ? 'USD' : 'EUR' : value == 'de' ? 'de' : 'en';
-      url = param == 'curr' ? url.replace("curr="+value_to,"curr="+value_from) : url.replace("locale="+value_to,"locale="+value_from);
+  value_to = param == 'curr' ? value == 'USD' ? 'EUR' : 'USD' : value == 'de' ? 'en' : 'de';
+  value_from = param == 'curr' ? value == 'USD' ? 'USD' : 'EUR' : value == 'de' ? 'de' : 'en';
+  url = param == 'curr' ? url.replace("curr="+value_to,"curr="+value_from) : url.replace("locale="+value_to,"locale="+value_from);
 
-    }
+  }
 
-    //return the finished url
-    window.location = url;
+  //return the finished url
+  window.location = url;
   }
 
 </script>
 <script type="text/javascript">
   function redirect_to_new()
   {
-    window.location = "<%= new_recipe_path %>"
+  window.location = "<%= new_recipe_path %>"
   }
 </script>
 <script type="text/javascript">
   function redirect_to_new_user()
   {
-    window.location = "<%= new_user_registration_path %>"
+  window.location = "<%= new_user_registration_path %>"
   }
 </script>
 <script type="text/javascript">
   function redirect_to_Signin()
   {
-    window.location = "<%= new_user_session_path %>"
+  window.location = "<%= new_user_session_path %>"
   }
-<%unless current_user.blank?%>
+  <%unless current_user.blank?%>
     function redirect_to_profile()
     {
-      window.location = "/profile/<%= current_user.id %>"
+    window.location = "/profile/<%= current_user.id %>"
     }
-<%end%>
+    function redirect_to_signout()
+    {
+    window.location = "/users/sign_out"
+    }
+  <%end%>
 </script>

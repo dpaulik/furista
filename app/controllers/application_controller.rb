@@ -10,7 +10,11 @@ class ApplicationController < ActionController::Base
   def available_locales; AVAILABLE_LOCALES; end
   helper :all
   before_filter :set_locale
-
+  
+  def after_sign_in_path_for(resource)
+     "/profile/#{current_user.id}"
+  end
+  
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
     params[:locale] =  I18n.locale
