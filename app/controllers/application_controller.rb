@@ -1,4 +1,4 @@
-# -*- encoding : utf-8 -*-
+# encoding: UTF-8
 require 'pp'
 require 'net/http'
 require 'uri'
