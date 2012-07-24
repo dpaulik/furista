@@ -1,4 +1,3 @@
-
 class ServicesController < ApplicationController
   before_filter :authenticate_user!, :except => [:create]
 

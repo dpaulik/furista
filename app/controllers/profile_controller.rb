@@ -1,4 +1,3 @@
-
 class ProfileController < ApplicationController
  layout "profile"
   def show
