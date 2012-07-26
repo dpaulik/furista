@@ -4,7 +4,7 @@ class RecipesController < ApplicationController
   autocomplete :ingredient, :ingredient
 
   def index
-    params[:q] = ""  if params[:q] == "What you are hungry for?" || params[:q] == "Search"
+    params[:q] = ""  if params[:q] == "What are you hungry for" || params[:q] == "Search"
     if params[:sort].blank? || params[:sort] == "Newest"
       order = "created_at DESC"
     elsif params[:sort] == "A-Z"
@@ -54,7 +54,7 @@ class RecipesController < ApplicationController
         20 * params[:page].to_i
       end
     end
-    
+    render :index
   end
 
   def new
