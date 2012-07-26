@@ -32,7 +32,7 @@ de:
     back_to_search_result: "zurück zum Suchergebnis"
     Please_accept_terms_and_conditions: "Bitte akzeptieren Sie Bedingungen und Konditionen"
     Signup_for: "Anmeldungen für"
-    Signout: "Log out"
+    Signout: "sich austragen"
     First_Name: "Vorname"
     Last_Name: "Nachname"
     Password: "Kennwort"
@@ -48,7 +48,7 @@ de:
     Forgot_your_password?: "Passwort vergessen?"
     Need_an_account: "Benötigen Sie ein Konto"
     Signup: "Anmeldungen"
-    Profile: "Profile"
+    Profile: "Profil"
     number:
        currency:
           format:
