@@ -76,7 +76,7 @@ class RecipesController < ApplicationController
 
     respond_to do |format|
       format.js do
-        foo = render_to_string(:partial => "units_partial", :locals => {:units => @units}).to_json
+        foo = render_to_string(:partial => "units_partial", :locals => {:part_units => @units}).to_json
         render :js => "$('#unit_#{params[:count]} ').html(#{foo});"
         #        alert('Successfully Changed the Status!');
       end

@@ -12,7 +12,7 @@
     <%= text_field_tag "ingredient[amount][]", "",:onkeypress => "return isNumberKey(event)" %>
   </div>
   <div class="singleunit" id="unit_<%= count %>">
-    <%= render :partial => "units_partial", :locals => {:units => units} %>
+    <%= render :partial => "units_partial", :locals => {:part_units => units} %>
   </div>
   <br/><br/>  
 </div>
