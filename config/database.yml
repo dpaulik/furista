@@ -12,9 +12,9 @@ test:
   username: root
   password: "123"
 
-cucumber:
+production:
   adapter: mysql2
   hostname: localhost
-  database: furista_test
+  database: furista_development
   username: root
   password: "123"
