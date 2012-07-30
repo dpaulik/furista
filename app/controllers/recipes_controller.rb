@@ -87,6 +87,13 @@ class RecipesController < ApplicationController
     @recipe  = Recipe.new(params[:recipe])
     if @recipe.save
       title = @recipe.title
+      
+      title = title.gsub('     ','-')
+      title = title.gsub('    ','-')
+      title = title.gsub('   ','-')
+      title = title.gsub('  ','-')
+      title = title.gsub(' ','-')      
+      
       title = title.gsub('Æ','A')
       title = title.gsub('Á','A')
       title = title.gsub('Â','A')

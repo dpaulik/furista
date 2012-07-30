@@ -3,55 +3,55 @@
 de:
   errors:
     messages:
-      expired: "abgelaufen ist, wenden Sie sich bitte ein neues anfordern"
+      expired: "ist abgelaufen, bitte fordere ein neues an"
       not_found: "nicht gefunden"
-      already_confirmed: "wurde bereits bestÃ¤tigt, bitte versuchen Sie, sich"
+      already_confirmed: "wurde bereits bestätigt, bitte versuche dich anzumelden"
       not_locked: "war nicht verschlossen"
       not_saved:
-        one: "1 error prohibited this %{resource} from being saved:"
-        other: "%{count} errors prohibited this %{resource} from being saved:"
+        one: "1 Fehler hat diese %{resource} davon abgehalten zu speichern:"
+        other: "%{count} Fehler haben %{resource} davon abgehalten zu speichern:"
 
   devise:
     failure:
-      already_authenticated: 'Sie sind bereits unterzeichnet.'
-      unauthenticated: 'Sie mÃ¼ssen sich anmelden oder registrieren, bevor Sie fortfahren.'
-      unconfirmed: 'Sie haben auf Ihr Konto, bevor Sie fortfahren bestÃ¤tigen.'
-      locked: 'Ihr Konto ist gesperrt.'
-      invalid: 'UngÃ¼ltige E-Mail oder Passwort.'
-      invalid_token: 'UngÃ¼ltige Authentifizierungs-Token.'
-      timeout: 'Ihre Sitzung ist abgelaufen, bitte melden Sie sich erneut, um fortzufahren.'
-      inactive: 'Ihr Konto wurde noch nicht aktiviert.'
+      already_authenticated: 'Du bist bereits angemeldet.'
+      unauthenticated: 'Du musst angemeldet oder registriert sein um fortzufahren.'
+      unconfirmed: 'Bitte bestätige dein Konto.'
+      locked: 'Dein Konto ist leider gesperrt.'
+      invalid: 'Dein Passwort oder deine E-Mail Adresse ist leider ungültig.'
+      invalid_token: 'Dein Authentifizierungs-Token ist leider ungültig.'
+      timeout: 'Deine Sitzung ist abgelaufen, bitte melde dich erneut an um fortzufahren.'
+      inactive: 'Dein Konto wurde noch nicht aktiviert.'
     sessions:
-      signed_in: 'Unterzeichnet in erfolgreich.'
-      signed_out: 'Out erfolgreich abgeschlossen!.'
+      signed_in: 'Du hast dich erfolgreich eingeloggt.'
+      signed_out: 'Du hast dich erfolgreich ausgeloggt.'
     passwords:
-      send_instructions: 'Sie erhalten eine E-Mail mit Anweisungen erhalten, wie Sie Ihr Passwort in wenigen Minuten zurÃ¼ckgesetzt.'
-      updated: 'Ihr Passwort wurde erfolgreich geÃ¤ndert. Sie sind jetzt unterzeichnet.'
-      updated_not_active: 'Ihr Passwort wurde erfolgreich geÃ¤ndert.'
-      send_paranoid_instructions: "Wenn Ihre E-Mail-Adresse in unserer Datenbank existiert, wird Ihnen ein Passwort Recovery Link auf Ihre E-Mail-Adresse in wenigen Minuten erhalten."
+      send_instructions: 'Du erhälst eine E-Mail mit den Schritten wie du dein Passwort in wenigen Minuten zurück setzen kannst.'
+      updated: 'Dein Passwort wurde erfolgreich geändert. Du bist jetzt eingeloggt.'
+      updated_not_active: 'Dein Passwort wurde erfolgreich geändert.'
+      send_paranoid_instructions: "Falls deine E-Mail-Adresse in unserer Datenbank existiert schicken wir dir in wenigen Minuten einen Recovery Link via E-Mail zu."
     confirmations:
-      send_instructions: 'Sie erhalten eine E-Mail mit Anweisungen erhalten, wie Sie Ihr Konto in wenigen Minuten zu bestÃ¤tigen.'
-      send_paranoid_instructions: 'Wenn Ihre E-Mail-Adresse in unserer Datenbank existiert, werden Sie eine Email mit Anweisungen erhalten, wie Sie Ihr Konto in wenigen Minuten zu bestÃ¤tigen.'
-      confirmed: 'Ihr Konto wurde erfolgreich bestÃ¤tigt. Sie sind jetzt unterzeichnet.'
+      send_instructions: 'In wenigen Minuten erhälst du eine Email um deinen Account zu bestätigen.'
+      send_paranoid_instructions: 'Falls deine Email Adresse in unserer Datenbank gespeichert ist erhälst du in wenigen Minuten eine Email um deinen Account zu bestätigen.'
+      confirmed: 'Dein Account wurde erfolgreich bestätigt. Du bist jetzt angemeldet.'
     registrations:
-      signed_up: 'Herzlich Willkommen! Sie haben erfolgreich abgeschlossen!.'
-      signed_up_but_unconfirmed: 'Eine Nachricht mit einem BestÃ¤tigungs-Link wurde zu Ihrem E-Mail-Adresse gesendet. Bitte Ã¶ffnen Sie den Link, um Ihr Konto zu aktivieren.'
-      signed_up_but_inactive: 'ie haben erfolgreich abgeschlossen. Allerdings konnten wir nicht unterschreiben Sie, weil Ihr Konto noch nicht aktiviert.'
-      signed_up_but_locked: 'Sie haben erfolgreich abgeschlossen. Allerdings konnten wir nicht unterschreiben, weil Sie in Ihrem Konto ist gesperrt.'
-      updated: 'Sie aktualisierten Ihr Konto erfolgreich.'
-      update_needs_confirmation: "Sie aktualisierten Ihr Konto erfolgreich, aber wir benÃ¶tigen, um Ihre neue E-Mail-Adresse zu Ã¼berprÃ¼fen. Bitte Ã¼berprÃ¼fen Sie Ihre E-Mail und klicken Sie auf den Link bestÃ¤tigen zu finalisieren BestÃ¤tigung Ihrer neuen E-Mail-Adresse."
-      destroyed: 'Bye! Ihr Konto wurde erfolgreich gelÃ¶scht. Wir hoffen auf ein baldiges Wiedersehen.'
+      signed_up: 'Herzlich Willkommen bei Furista! Du hast dich erfolgreich registriert.'
+      signed_up_but_unconfirmed: 'Wir haben dir eine Email mit einem Bestätigungs-Link geschickt. Bitte öffne den Link um dein Konto zu aktivieren.'
+      signed_up_but_inactive: 'Du hast dich erfolgreich registriert. Bevor du dich einloggen kannst musst du allerdings noch deinen Account aktivieren.'
+      signed_up_but_locked: 'Du hast dich erfolgreich registriert. Leider können wir dich aber nicht anmelden, da dein Account gesperrt ist.'
+      updated: 'Du hast deinen Account erfolgreich aktualisiert.'
+      update_needs_confirmation: "Du hast deinen Account erfolgreich aktualisiert. Allerdings müssen wir noch deine neue Email Adresse verifizieren. Bitte schau in deinen Email Posteingang und bestätige den Aktivierungslink um deine neue Email Adresse zu aktivieren."
+      destroyed: 'Auf Wiedersehen! Dein Account wurde erfolgreich gelöscht. Wir hoffen darauf dich bald wiederzusehen.'
     unlocks:
-      send_instructions: 'Sie erhalten eine E-Mail mit Anweisungen erhalten, wie Sie Ihr Konto in wenigen Minuten entsperren.'
-      unlocked: 'Ihr Konto wurde erfolgreich entsperrt. Bitte loggen Sie sich weiterhin.'
-      send_paranoid_instructions: 'Wenn Ihr Konto existiert, werden Sie eine E-Mail mit Anweisungen, wie Sie es zu entsperren erhalten in wenigen Minuten.'
+      send_instructions: 'Du wirst in wenigen Minuten eine Email erhalten wie du deinen Account reaktivieren kannst.'
+      unlocked: 'Dein Account wurder erfolgreich reaktiviert. Bitte logge dich ein um fortzufahren.'
+      send_paranoid_instructions: 'Falls dein Account existiert wirst du in wenigen Mintuen eine Email erhalten wie du deinen Account reaktivieren kannst.'
     omniauth_callbacks:
-      success: 'Successfully authenticated from %{kind} account.'
-      failure: 'Could not authenticate you from %{kind} because "%{reason}".'
+      success: 'Du wurdest erfolgreich durch %{kind} identifiziert.'
+      failure: 'Du konntest nicht durch %{kind} identifiziert werden weil "%{reason}".'
     mailer:
       confirmation_instructions:
-        subject: 'BestÃ¤tigung Anweisungen'
+        subject: 'Anleitung zur Bestätigung deines Accounts'
       reset_password_instructions:
-        subject: 'Passwort zurÃ¼cksetzen Anweisungen'
+        subject: 'Anleitung um dein Passwort zurück zu setzen'
       unlock_instructions:
-        subject: 'Unlock Anleitung'
+        subject: 'Anleitung um dein Account zu reaktivieren'
