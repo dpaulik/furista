@@ -1,16 +1,13 @@
-# Sample localization file for English. Add more files in this directory for other locales.
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
 de:
-
     find_a_recipe: "Rezepte suchen"
-    browse_through: "durchblättern"
+    browse_through: "durchblï¿½ttern"
     recipes: "Rezepte"
     post_your_recipe: "Rezept eintragen"
     what_are_you_hungry_for: "Worauf hast du Hunger"
     Your_recipe_is_amazing_and_unique: "Du kennst ein tolles Rezept?"
-    Share_it_with_other_so_they_can_enjoy_it_too!: "Teile es mit anderen, so dass auch sie es genießen können!"
-    verify_your_account: "Bestätige deinen Account"
+    Share_it_with_other_so_they_can_enjoy_it_too!: "Teile es mit anderen, so dass auch sie es genieï¿½en kï¿½nnen!"
+    verify_your_account: "Bestï¿½tige deinen Account"
     title: "Rezeptname"
     short_description: "Beschreibung"
     prep_time: "Vorbereitungszeit"
@@ -29,9 +26,9 @@ de:
     Newest: "Neueste"
     Supermarket: "Supermarkt"
     Search: "Suchen"
-    back_to_search_result: "Zurück zum Suchergebnis"
+    back_to_search_result: "Zurï¿½ck zum Suchergebnis"
     Please_accept_terms_and_conditions: "Bitte akzeptiere die Bedingungen und Konditionen"
-    Signup_for: "Anmeldungen für"
+    Signup_for: "Anmeldungen fï¿½r"
     Signout: "Abmelden"
     First_Name: "Vorname"
     Last_Name: "Nachname"
@@ -41,12 +38,12 @@ de:
     Already_a_member_of: "Du bist bereits Mitglied"
     Log_In_now: "Melde dich jetzt an"
     By_clicking_on: "Mit einem Klick auf"
-    you_confirm_that_you_accept_the: "Hiermit bestätigst du die zu akzeptieren"
+    you_confirm_that_you_accept_the: "Hiermit bestï¿½tigst du die zu akzeptieren"
     Sign_In_to: "Anmelden um zu"
     Find_the_best_recipes: "Finde die besten Rezepte"
     Remember_me_next_time: "Ich will angemeldet bleiben"
     Forgot_your_password?: "Passwort vergessen?"
-    Need_an_account: "Möchtest du einen Account?"
+    Need_an_account: "Mï¿½chtest du einen Account?"
     Signup: "Registrierung"
     Profile: "Profil"
     number:

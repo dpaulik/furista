@@ -4,17 +4,15 @@ development:
   database: furista_development
   username: root
   password: "123"
-
 test:
   adapter: mysql2
   hostname: localhost
   database: furista_test
   username: root
   password: "123"
-
 production:
   adapter: mysql2
   hostname: localhost
-  database: furista_development
+  database: furista_production
   username: root
   password: "123"

@@ -15,8 +15,6 @@
       }
     </script>
 
-
-
     <div class="<%= params[:locale] == "de" ? "landingsearchholder_gr" : "landingsearchholder"%>">
       <%= form_tag recipes_path, :method => :get, :class => 'recipe_search' do %>
         <%= text_field_tag :q, params[:q], :type => 'text', :value => "#{t(:what_are_you_hungry_for)}", :size => 80, :onclick => "make_blank(this);"%>
