@@ -4,6 +4,12 @@ Ingredient.create(:ingredient => "Yogurt")
 Ingredient.create(:ingredient => "Salt")
 Ingredient.create(:ingredient => "Lemon")
 Ingredient.create(:ingredient => "Honey")
+
+Unit.create(:name => "")
+Unit.create(:name => "EL")
+Unit.create(:name => "ml")
+Unit.create(:name => "g")
+Unit.create(:name => "TL")
 ##recipe = Recipe.new
 ##recipe.title =  "Schwarze Spaghetti mit Scampisugo"
 ##recipe.servings = 4
