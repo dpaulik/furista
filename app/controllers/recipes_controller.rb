@@ -314,7 +314,11 @@ class RecipesController < ApplicationController
           end
           amount = params[:ingredient][:amount][index]
           unit = params[:ingredient][:unit][index]
-          unitobj = Unit.find unit.to_i
+          unless unit.blank?
+            unitobj = Unit.find unit.to_i
+          else
+            unitobj = nil
+          end
           IngredientRecipe.create(:ingredient_id => ingredient.id, :recipe_id => @recipe.id, :amount => amount, :unit => unitobj)
         end
       end

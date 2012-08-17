@@ -96,10 +96,14 @@
         </div>
         <div class="topfieldholder">
 
-          <label>
-            <%=t(:Email_Address)%>:
-          </label>
-          <%= f.text_field :email_address, :style=>"width:394px;" %>
+          <%unless user_signed_in?%>
+            <label>
+              <%=t(:Email_Address)%>:
+            </label>
+            <%= f.text_field :email_address, :style=>"width:394px;" %>
+          <%else%>
+            <%= f.hidden_field :user_id, :value => current_user.id %>
+          <%end%>
         </div>
         <div class="textInput" id="i_agree_error" style="display:none">
           <span style="margin-left: -210px; opacity: 1;margin-top:405px;">
@@ -117,14 +121,17 @@
   </div>
 </div>
 <script type="text/javascript">
-  function isNumberKey(evt)
+  function isDecimalKey(eve)
   {
-    var charCode = (evt.which) ? evt.which : event.keyCode
-    if (charCode > 31 && (charCode < 48 || charCode > 57))
-      return false;
+    if ((eve.which != 46 || $(this).val().indexOf('.') != -1) && (eve.which < 48 || eve.which > 57) || (eve.which == 46 && $(this).caret().start == 0) ) {
+      eve.preventDefault();
+    }
 
-    return true;
+    // this part is when left part of number is deleted and leaves a . in the leftmost position. For example, 33.25, then 33 is deleted
+    
   }
+  
+  
   function validate()
   {
     value = $("#recipe_title").val();
@@ -160,6 +167,6 @@
       }
     })
   });
- 
+
 
 </script>

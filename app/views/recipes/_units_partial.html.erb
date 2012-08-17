@@ -1,4 +1,4 @@
 <label>
   <%=t(:Unit)%>
 </label>
-<%= select_tag "ingredient[unit][]", options_from_collection_for_select(part_units, :id, :name), :style => "width:113px;" %>
+<%= select_tag "ingredient[unit][]", options_from_collection_for_select(part_units, :id, :name), :style => "width:113px;" , :include_blank => true %>

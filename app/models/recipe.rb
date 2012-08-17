@@ -1,7 +1,7 @@
 class Recipe < ActiveRecord::Base
+  belongs_to :user
   has_many :ingredient_recipes
-  has_many :ingredients, :through => :ingredient_recipes
-  
+  has_many :ingredients, :through => :ingredient_recipes  
   scope :search_for, lambda { | term | where("lower(title) like :term or lower(directions) like :term", :term => "%#{term.downcase}%") }
     has_attached_file :photo,
 
@@ -11,8 +11,6 @@ class Recipe < ActiveRecord::Base
     :path => "/system/ugc/:class/:id/:style/:basename.:extension",
     :styles => {:thumb => "114x114>", :small => "150x150>", :medium => "275x275>", :large => "640x640>" },
     :default_style => :original
-
-
 
 
   validates_attachment_size :photo, :less_than => 5.megabytes
