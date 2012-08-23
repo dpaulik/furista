@@ -20,8 +20,12 @@
       <%= f.password_field :password, :placeholder => "#{t(:Password)}" %>
       <%= f.password_field :password_confirmation , :placeholder => "#{t(:Password_confirmation)}"%>
       <div class="createaccount">
-        <%= f.submit "Comment", :type => :image, :src => "/assets/creatacount.png" %>
-
+        <% if params[:locale].blank? || params[:locale] == :en %>
+          <%= f.submit "Create", :type => :image, :src => "../images/creatacount.png" %>
+          <%else%>
+          <%= f.submit "Create", :type => :image, :src => "../images/creatacount1.png" %>
+          <%end%>
+       
       </div>
     <% end %>
     <p>

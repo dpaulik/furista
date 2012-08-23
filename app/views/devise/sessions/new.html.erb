@@ -28,7 +28,11 @@
         <%= f.password_field :password, :placeholder => "#{t(:Password)}" %>
 
         <div class="createaccount">
-          <%= f.submit "", :type => :image, :src => "/assets/login.png" %>
+          <% if params[:locale].blank? || params[:locale] == :en %>
+          <%= f.submit "", :type => :image, :src => "../images/login.png" %>
+          <%else%>
+            <%= f.submit "", :type => :image, :src => "../images/login1.png" %>
+          <%end%>
         </div>
 
         <div class="remebermenextime">

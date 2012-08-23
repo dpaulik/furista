@@ -92,7 +92,8 @@ class RecipesController < ApplicationController
       title = title.gsub('    ','-')
       title = title.gsub('   ','-')
       title = title.gsub('  ','-')
-      title = title.gsub(' ','-')      
+      title = title.gsub(' ','-')
+      title = title.gsub(',','-')
       
       title = title.gsub('Æ','A')
       title = title.gsub('Á','A')

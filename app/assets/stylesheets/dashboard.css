@@ -47,8 +47,7 @@ th {
 }
 
 .yellowbutton {
-    background: url("yellow_button.png") no-repeat scroll 0pt 0pt
-        transparent;
+    background: url("../images/yellow_button.png") no-repeat scroll 0 0 transparent;
     float: right;
     font-weight: bold;
     height: 33px;
