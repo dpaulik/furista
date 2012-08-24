@@ -25,7 +25,7 @@ Furista::Application.routes.draw do
   root :to => "homepage#index"
 
 
-  match "/rezepte/:id" => "recipes#show"
+  match "/Rezepte/:id" => "recipes#show"
 
   #match "/thank-you" => "welcome#thank_you"
 
