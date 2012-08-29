@@ -1,48 +1,82 @@
 
-	<div class="wrrapper">
-         <% @recipes.each do |r| %>
-         
-          <div class="gellary_hold"  id="project_images">
-              <div class="white_hold" >
-                <% if r.photo_file_name.blank? %>
-                  <img alt="missing" src ="images/missing1.jpg"/>
-                <%else%>
-                    <img alt=""  src="<%=r.photo.url(:thumb)%>" />
-                <%end%>
-              <h4>
+<div class="wrrapper" id="project_images">
+  <% @recipes.each do |r| %>
 
-                <%#= link_to r.title, recipe_path(r.recipes_url) %>
-                <%= link_to r.title,  "/Rezepte/#{r.recipes_url}" %>
-
-              </h4>
-             
-              </div>
-              <div class="name_hold">
-            	<img src="images/name_img.png" alt="" />
-
-                <%if r.user_id.blank?%>
-                  <p><%=r.email_address%></p>
-                <%else%>
-                  <p><%=r.user.first_name%>&nbsp;<%=r.user.last_name%></p>
-                <%end%>
-
-                <div class="clr"></div>
-            </div>
-       
-          </div>
+    <div class="gellary_hold"   >
+      <div class="white_hold" >
+        <% if r.photo_file_name.blank? %>
+          <img alt="missing" src ="images/missing1.jpg"/>
+        <%else%>
+          <img alt=""  src="<%=r.photo.url(:thumb)%>" />
         <%end%>
-      </div>
-<script type="application/javascript">
+        <h4>
 
-$(document).ready(function(){
-      var $container = $('#project_images');
-        $container.isotope({
-	filter: '*',
-	animationOptions: {
-      duration: 750,
-      easing: 'linear',
-      queue: false,
-   }
-});
+  <%#= link_to r.title, recipe_path(r.recipes_url) %>
+          <%= link_to r.title,  "/Rezepte/#{r.recipes_url}" %>
+
+        </h4>
+
+      </div>
+      <div class="name_hold">
+        <img src="images/name_img.png" alt="" />
+
+        <%if r.user_id.blank?%>
+          <p><%=r.email_address%></p>
+        <%else%>
+          <p><%=r.user.first_name%>&nbsp;<%=r.user.last_name%></p>
+        <%end%>
+
+        <div class="clr"></div>
+      </div>
+
+    </div>
+  <%end%>
+</div>
+<script type="text/javascript">
+
+  $(document).ready(function(){
+    var $container = $('#project_images');
+    $container.isotope({
+      filter: '*',
+      animationOptions: {
+        duration: 750,
+        easing: 'linear',
+        queue: false,
+      }
+    });
+  });
 </script>
+<style>
+  **** Isotope filtering ****/
+
+  .isotope-item {
+    z-index: 2;
+  }
+
+  .isotope-hidden.isotope-item {
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .isotope,
+  .isotope .isotope-item {
+    /* change duration value to whatever you like */
+    -webkit-transition-duration: 0.8s;
+    -moz-transition-duration: 0.8s;
+    transition-duration: 0.8s;
+  }
+
+  .isotope {
+    -webkit-transition-property: height, width;
+    -moz-transition-property: height, width;
+    transition-property: height, width;
+  }
+
+  .isotope .isotope-item {
+    -webkit-transition-property: -webkit-transform, opacity;
+    -moz-transition-property:    -moz-transform, opacity;
+    transition-property:         transform, opacity;
+  }
+
+</style>
 
