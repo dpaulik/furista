@@ -5,6 +5,7 @@ Furista::Application.routes.draw do
   end
 
   match '/recipes/fetch_units/:ingredient_name/:count' => "recipes#fetch_units"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

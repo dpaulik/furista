@@ -4,19 +4,16 @@
   <div class="recipe_container">
 
     <div class="head">
-      <a href="/recipe">
+      <a href="/" >
         <img src="/images/recipe-backarrow.png" class="backarrow" alt="<<" />
         <%= t(:back_to_search_result)%>
       </a>
-
     </div>
 
     <div class="mid">
-
       <div class="leftcontent">
         <h1>
           <%= @recipe.title %>
-          
         </h1>
         
         <div class="mainimage" style="background:url(<%=@recipe.photo.url(:large)%>) no-repeat scroll 0 0 transparent;">
@@ -72,6 +69,4 @@
     });
 
   </script>
-
-
 </div>

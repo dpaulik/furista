@@ -136,6 +136,7 @@ th {
     float: left;
     padding: 20px;
     width: 620px;
+    margin-left: 130px;
 }
 
 .postboxholder p {
@@ -571,7 +572,7 @@ th {
 }
 a{
     color: #1C94C9;
-    text-decoration: none;
+    text-decoration: underline;
 }
 .textInput span {
     background: url("/images/error.png") no-repeat scroll 0 0 transparent;

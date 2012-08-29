@@ -1,53 +1,122 @@
-<div class="content">
+<html>
+<body>
+	<div class="wrrapper">
+         <% @recipes.each do |r| %>
+         
+          <div class="gellary_hold"  id="project_images">
+              <div class="white_hold" >
+                <% if r.photo_file_name.blank? %>
+                  <img alt="missing" src ="images/missing1.jpg"/>
+                <%else%>
+                    <img alt=""  src="<%=r.photo.url(:thumb)%>" />
+                <%end%>
+              <h4>
 
-  <div class="leftside">
-    <h1>
-      <%= t(:find_a_recipe) %>
-    </h1>
-    <h4>
-      <%= t(:browse_through) %> <b><%= @recipes.size %> <%= t(:recipes)%></b>
-    </h4>
+                <%#= link_to r.title, recipe_path(r.recipes_url) %>
+                <%= link_to r.title,  "/Rezepte/#{r.recipes_url}" %>
 
-    <script type="text/javascript">
-      function make_blank(textbox)
-      {
-      textbox.value ="";
-      }
-    </script>
+              </h4>
+             
+              </div>
+              <div class="name_hold">
+            	<img src="images/name_img.png" alt="" />
 
-    <div class="<%= params[:locale] == "de" ? "landingsearchholder_gr" : "landingsearchholder"%>">
-      <%= form_tag recipes_path, :method => :get, :class => 'recipe_search' do %>
-        <%= text_field_tag :q, params[:q], :type => 'text', :value => "#{t(:what_are_you_hungry_for)}", :size => 80, :onclick => "make_blank(this);"%>
-        <%= hidden_field_tag "locale", params[:locale] %> <%= hidden_field_tag "supermarket", "Alle" %>
-      <%= submit_tag '' %>
-    <% end %>
+                <%if r.user_id.blank?%>
+                  <p><%=r.email_address%></p>
+                <%else%>
+                  <p><%=r.user.first_name%>&nbsp;<%=r.user.last_name%></p>
+                <%end%>
 
-    </div>
+                <div class="clr"></div>
+            </div>
+       
+          </div>
+        <%end%>
+      </div>
+<script type="application/javascript">
+if ((screen.width>=768))
+{
+$(function(){
+    var $container = $('#project_images');
+    {
+		$("#empty_project_copy").hide();
+        $('#work_categories li[data-category="*"] a').addClass('active');
+		//$container.imagesLoaded( function(){   ///adds image loaded function
+		$container.isotope({
+            filter: '*',
+            animationOptions: {
+                duration: 500,
+                easing: 'linear'
+            }
+        //});
+        });
+    }
+    $("#empty_project_copy").fadeOut();
+    // When a category is clicked on, concatenate it's category name to a string that gets passed into
+    // Isotope and then filters projects
+    $('#work_categories a').on('click', function(event) {
+        if ($(this).parent().attr('data-category') == '*') {
+            $('#work_categories a').removeClass('active');
+            $(this).addClass('active');
+			$("#empty_project_copy").fadeOut();
 
-  </div>
+			$container.isotope({
+                filter: '*',
+                animationOptions: {
+                    duration: 500,
+                    easing: 'swing',
+                }
+            });
+            return false;
+        }
 
-  <div style="border: 1px solid #D0D0D0;
-       float: right;
-       padding: 5px;border-radius: 5px 5px 5px 5px;">
-    <div class="homepicholder" style="width:475px">
-      <img src="assets/noodlepizza.JPG" width="475px" height="322px" />
-      <img src="assets/product.jpg" width="475px" height="322px" />
-      <img src="assets/black.jpg" width="475px" height="322px" />
-      <img src="assets/foodimg.jpg" width="475px" height="322px" />
-      <img src="assets/curryimg.jpg" width="475px" height="322px" />
-      
-    </div>
-  </div>
- 
-</div>
+        $(this).toggleClass('active');
+        var selectors = $('#work_categories a.active');
+        var selected = '';
 
-<script type="text/javascript">
-  $(document).ready(function() {
-  $('.homepicholder').cycle({
-  fx: 'fade'
-  });
-  });
+
+        selectors.each(function() {
+            if ($(this).parent().attr('data-category') == '*') {
+                $(this).removeClass('active');
+                return;
+            }
+
+            if ($(this).parent().attr('data-category') != '*')
+            {
+                selected += $(this).parent().attr('data-category');
+            }
+
+        });
+
+
+        $("#empty_project_copy").fadeOut();
+        $container.isotope({
+            filter: selected,
+            animationOptions: {
+                duration: 500,
+                easing: 'swing',
+                complete: function() {
+                    if ($('#project_images .project_thumb').not('.isotope-hidden').size() == 0) {
+                        $("#empty_project_copy").fadeIn();
+                    }
+
+                }
+
+            }
+        });
+
+    });
+    });
+}
+	else
+{
+$(function(){
+	$("#empty_project_copy").hide();
+	$('#project_images .project_thumb').removeClass('view-first');
+	});
+}
+
 </script>
-<style type="text/css">
-  .homepicholder { float: right; }
-</style>
+
+</body>
+</html>

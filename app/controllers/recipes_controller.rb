@@ -3,6 +3,8 @@
 class RecipesController < ApplicationController
   autocomplete :ingredient, :ingredient
 
+  
+
   def index
     params[:q] = ""  if params[:q] == "What are you hungry for" || params[:q] == "Search"
     if params[:sort].blank? || params[:sort] == "Newest"
@@ -85,7 +87,8 @@ class RecipesController < ApplicationController
 
   def create
     @recipe  = Recipe.new(params[:recipe])
-    if @recipe.save
+    @units = Unit.all
+    if @recipe.save!
       title = @recipe.title
       
       title = title.gsub('     ','-')
