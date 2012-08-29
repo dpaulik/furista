@@ -1,5 +1,4 @@
-<html>
-<body>
+
 	<div class="wrrapper">
          <% @recipes.each do |r| %>
          
@@ -34,89 +33,16 @@
         <%end%>
       </div>
 <script type="application/javascript">
-if ((screen.width>=768))
-{
-$(function(){
-    var $container = $('#project_images');
-    {
-		$("#empty_project_copy").hide();
-        $('#work_categories li[data-category="*"] a').addClass('active');
-		//$container.imagesLoaded( function(){   ///adds image loaded function
-		$container.isotope({
-            filter: '*',
-            animationOptions: {
-                duration: 500,
-                easing: 'linear'
-            }
-        //});
-        });
-    }
-    $("#empty_project_copy").fadeOut();
-    // When a category is clicked on, concatenate it's category name to a string that gets passed into
-    // Isotope and then filters projects
-    $('#work_categories a').on('click', function(event) {
-        if ($(this).parent().attr('data-category') == '*') {
-            $('#work_categories a').removeClass('active');
-            $(this).addClass('active');
-			$("#empty_project_copy").fadeOut();
 
-			$container.isotope({
-                filter: '*',
-                animationOptions: {
-                    duration: 500,
-                    easing: 'swing',
-                }
-            });
-            return false;
-        }
-
-        $(this).toggleClass('active');
-        var selectors = $('#work_categories a.active');
-        var selected = '';
-
-
-        selectors.each(function() {
-            if ($(this).parent().attr('data-category') == '*') {
-                $(this).removeClass('active');
-                return;
-            }
-
-            if ($(this).parent().attr('data-category') != '*')
-            {
-                selected += $(this).parent().attr('data-category');
-            }
-
-        });
-
-
-        $("#empty_project_copy").fadeOut();
+$(document).ready(function(){
+      var $container = $('#project_images');
         $container.isotope({
-            filter: selected,
-            animationOptions: {
-                duration: 500,
-                easing: 'swing',
-                complete: function() {
-                    if ($('#project_images .project_thumb').not('.isotope-hidden').size() == 0) {
-                        $("#empty_project_copy").fadeIn();
-                    }
-
-                }
-
-            }
-        });
-
-    });
-    });
-}
-	else
-{
-$(function(){
-	$("#empty_project_copy").hide();
-	$('#project_images .project_thumb').removeClass('view-first');
-	});
-}
-
+	filter: '*',
+	animationOptions: {
+      duration: 750,
+      easing: 'linear',
+      queue: false,
+   }
+});
 </script>
 
-</body>
-</html>
