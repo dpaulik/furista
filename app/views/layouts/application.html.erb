@@ -22,7 +22,7 @@
     <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/themes/base/jquery-ui.css"/> <!-- jsFiddle -->
     <link rel="stylesheet" type="text/css" href="http://static.jquery.com/ui/css/demo-docs-theme/ui.theme.css"/> <!-- jsFiddle -->
 
-    <%= stylesheet_link_tag 'application' %>
+    <%= stylesheet_link_tag 'application','dashboard' %>
     <%= javascript_include_tag "application" %>
     <%#= javascript_include_tag "jquery.isotope.min" %>
 
@@ -33,8 +33,10 @@
   </head>
 
   <body>
+    
     <div class="container">
       <div class="header">
+        
         <input type="button" class="yellowbutton" value="<%=t(:post_your_recipe)%>" onclick="redirect_to_new();"  />
         <% unless current_user %>
           <input type="button" class="yellowbutton" style="margin-right:10px;" value="<%=t(:Signup)%>" onclick="redirect_to_new_user();" />
@@ -43,13 +45,14 @@
           <input type="button" class="yellowbutton"  style="margin-right:10px;" value="<%=t(:Signout)%>" onclick="redirect_to_signout();" />
           <input type="button" class="yellowbutton"  style="margin-right:10px;" value="<%=t(:Profile)%>" onclick="redirect_to_profile();" />
         <%end%>
-        <a href="<%= root_path %>">
+      
+          <a href="<%= root_path %>">
           <img class="logo" src="/images/logo.png" alt="Furista" />
         </a>
         <%= link_to "DE", "#", :onclick => "addParamToUrl('locale', 'de')" %> |
         <%= link_to "EN", "#", :onclick => "addParamToUrl('locale', 'en')" %>
       </div>
-      <div style="min-height:920px; float:left;">
+      <div style="min-height:920px; width:900px; float:left;">
         <%= yield %>
       </div>
     </div>

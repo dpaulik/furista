@@ -5,15 +5,13 @@
     <div class="gellary_hold"   >
       <div class="white_hold" >
         <% if r.photo_file_name.blank? %>
-          <img alt="missing" src ="images/missing1.jpg"/>
+
+          <%=link_to image_tag("/assets/missing1.jpg"), recipe_path(r.recipes_url) %>  
         <%else%>
-          <img alt=""  src="<%=r.photo.url(:thumb)%>" />
+          <%=link_to image_tag(r.photo.url(:thumb)),recipe_path(r.recipes_url)%>  
         <%end%>
-        <h4>
-
-  <%#= link_to r.title, recipe_path(r.recipes_url) %>
-          <%= link_to r.title,  "/Rezepte/#{r.recipes_url}" %>
-
+        <h4 style="color: blue;">
+          <%= r.title %>
         </h4>
 
       </div>
@@ -35,15 +33,15 @@
 <script type="text/javascript">
 
   $(document).ready(function(){
-    var $container = $('#project_images');
-    $container.isotope({
-      filter: '*',
-      animationOptions: {
-        duration: 750,
-        easing: 'linear',
-        queue: false,
-      }
-    });
+  var $container = $('#project_images');
+  $container.isotope({
+  filter: '*',
+  animationOptions: {
+  duration: 750,
+  easing: 'linear',
+  queue: false,
+  }
+  });
   });
 </script>
 <style>
