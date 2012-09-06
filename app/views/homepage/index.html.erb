@@ -6,9 +6,9 @@
       <div class="white_hold" >
         <% if r.photo_file_name.blank? %>
 
-          <%=link_to image_tag("/assets/missing1.jpg"), recipe_path(r.recipes_url) %>  
+          <%=link_to image_tag("/assets/missing1.jpg"), "/Rezepte/#{r.recipes_url}" %>  
         <%else%>
-          <%=link_to image_tag(r.photo.url(:thumb)),recipe_path(r.recipes_url)%>  
+          <%=link_to image_tag(r.photo.url(:thumb)), "/Rezepte/#{r.recipes_url}"%>  
         <%end%>
         <h4 style="color: blue;">
           <%= r.title %>
