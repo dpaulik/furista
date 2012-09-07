@@ -1,0 +1,148 @@
+<div class="content">
+  <div class="postboxholder">
+
+    <h1><%=t(:Your_recipe)%>.</h1>
+    
+    <div class="greybox">
+      <%= form_for @recipe, :html => {:onsubmit=> 'return validate();', :multipart => true} do |f|%>
+
+        <div class="upperfileds">
+          <div class="topfieldholder">
+
+            <label>
+              <h2>
+                <%=t(:title)%>:
+              </h2>
+            </label>
+            <%= f.text_field :title %>
+
+          </div>
+          <div class="topfieldholder">
+            <label>
+              <h2 style="font-weight: normal">
+                <%=t(:short_description)%>:
+              </h2>
+            </label>
+            <%= f.text_field :short_description %>
+
+          </div>
+          <div class="topfieldholder">
+
+            <label>
+              <%=t(:Servings)%>:
+            </label>
+            <%= f.text_field :servings, :style=>"width:70px;", :onkeypress => "return isNumberKey(event)" %>
+          </div>
+        </div>
+        <h2>
+          <%= t(:List_of_ingredients)%>
+        </h2>
+        <% count = 0 %>
+        <div class="ingredientunit">
+          <%= fields_for :ingredient do |i| %>
+            <div id="repeat_row">
+              <%= render :partial => "ingredient", :locals => {:count => count, :units => @units} %>
+            </div>
+          <%end%>
+          <div class="singleunit" style="float:none" id="add_more_<%= count %>">
+            <%= render :partial => "add_more", :locals => {:count => count} %>
+          </div>
+        </div>
+
+        <div class="directions">
+          <label>
+            <h2>
+              <%= t(:Directions)%>
+            </h2>
+          </label>
+          <%= f.text_area :directions%>
+        </div>
+
+        <div class="ingredientunit">
+          <div style="width: 100%;float: left;">
+            <div class="singleunit">
+              <label>
+                <%=t(:prep_time)%>
+              </label>
+              <%= f.text_field :prep_time, :style=>"width:100px;", :onkeypress => "return isNumberKey(event)" %>
+
+            </div>
+            <div class="singleunit">
+              <label>
+                <%=t(:cook_time)%>
+              </label>
+              <%= f.text_field :cook_time, :style=>"width:100px;", :onkeypress => "return isNumberKey(event)" %>
+            </div>
+            <div class="singleunit">
+              <label>
+                <%=t(:waiting_time)%>
+              </label>
+              <%= f.text_field :waiting_time, :style=>"width:100px;", :onkeypress => "return isNumberKey(event)" %>
+            </div>
+            <br/><br/>
+          </div>
+        </div>
+        <div class="browsfld">
+          <%= f.file_field :photo %>
+        </div>
+        <div class="topfieldholder">
+
+          <%unless user_signed_in?%>
+            <label>
+              <%=t(:Email_Address)%>:
+            </label>
+            <%= f.text_field :email_address, :style=>"width:394px;" %>
+          <%else%>
+            <%= f.hidden_field :user_id, :value => current_user.id %>
+          <%end%>
+        </div>
+        
+        <div class="agreeholder">
+          <%= f.hidden_field :i_agree, :value => true%>
+        </div>
+        <%= submit_tag "", :class => "#{params[:locale] == "de" ? "savenc_gr" : "savenc"}" %>
+      <%end%>
+    </div>
+
+  </div>
+</div>
+<script type="text/javascript">
+  function isDecimalKey(eve)
+  {
+    if(eve.which != 8){
+      if ((eve.which != 46 || $(this).val().indexOf('.') != -1) && (eve.which < 48 || eve.which > 57) || (eve.which == 46 && $(this).caret().start == 0)) {
+        eve.preventDefault();
+
+      }
+    }
+      // this part is when left part of number is deleted and leaves a . in the leftmost position. For example, 33.25, then 33 is deleted
+  }
+  
+  
+  function validate()
+  {
+    value = $("#recipe_title").val();
+    if(value == "")
+    {
+      alert("Title can't be blank");
+      return false;
+    }
+    else
+    {
+     return true
+    }
+
+  }
+
+  $(".ingredient_count_class").live("click", function() {
+    var $this = $(this);
+    $this.autocomplete({
+      change:function( event, ui ) {
+        $.ajax({
+          type:"GET",
+          url: '/recipes/fetch_units/'+ui.item.value+'/'+$this.attr('id').split('_')[1] 
+        });
+      }
+    })
+  });
+</script>

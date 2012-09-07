@@ -1,7 +1,6 @@
 Furista::Application.routes.draw do
   devise_for :users do
     get '/users/sign_out' => 'devise/sessions#destroy'
-
   end
 
   match '/recipes/fetch_units/:ingredient_name/:count' => "recipes#fetch_units"
@@ -19,13 +18,14 @@ Furista::Application.routes.draw do
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   get '/profile/:id' => 'profile#show'
-#get '/recipes/:recipes_url' => 'recipes#show'
-
-
-
+  #get '/recipes/:recipes_url' => 'recipes#show'
+#  get '/admin/recipes/index' => 'admin/recipes#index'
+#  get '/admin/recipes/edit' => 'admin/recipes#edit'
   root :to => "homepage#index"
 
-
+  namespace :admin do 
+    resources :recipes
+  end
   match "/Rezepte/:id" => "recipes#show"
 
   #match "/thank-you" => "welcome#thank_you"

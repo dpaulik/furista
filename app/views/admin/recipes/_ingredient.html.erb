@@ -1,0 +1,18 @@
+<div style="width: 100%;float: left;">
+  <div class="singleunit">
+    <label>
+      <%= t(:Ingredients)%>
+    </label>
+    <%= autocomplete_field_tag "ingredient[ingredient][]", "", autocomplete_ingredient_ingredient_recipes_path, :class => "ingredient_count_class", :id => "ingredient_#{count}", :placeholder => "Ingredient", :style=>"width:313px;" %>
+  </div>
+  <div class="singleunit" style="margin-left: 204px">
+    <label>
+      <%=t(:Amount)%>
+    </label>
+    <%= text_field_tag "ingredient[amount][]", "", :onkeypress => "return isDecimalKey(event)" %>
+  </div>
+  <div class="singleunit" id="unit_<%= count %>">
+    <%= render :partial => "units_partial", :locals => {:part_units => units} %>
+  </div>
+  <br/><br/>  
+</div>

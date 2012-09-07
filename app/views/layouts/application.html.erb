@@ -24,29 +24,36 @@
 
     <%= stylesheet_link_tag 'application','dashboard' %>
     <%= javascript_include_tag "application" %>
-    <%#= javascript_include_tag "jquery.isotope.min" %>
+<%#= javascript_include_tag "jquery.isotope.min" %>
 
-     <%= yield(:head) %>
+    <%= yield(:head) %>
     <%= csrf_meta_tags %>
 
 
   </head>
 
   <body>
-    
+
     <div class="container">
       <div class="header">
-        
-        <input type="button" class="yellowbutton" value="<%=t(:post_your_recipe)%>" onclick="redirect_to_new();"  />
+        <% unless current_user %>
+          <input type="button" class="yellowbutton" value="<%=t(:post_your_recipe)%>" onclick="redirect_to_new();"  />
+        <%else%>
+          <input type="button" class="yellowbutton" value="<%=t(:New_recipe)%>" onclick="redirect_to_edit();"  />
+        <%end%>
+
         <% unless current_user %>
           <input type="button" class="yellowbutton" style="margin-right:10px;" value="<%=t(:Signup)%>" onclick="redirect_to_new_user();" />
           <input type="button" class="yellowbutton"  style="margin-right:10px;" value="<%=t(:Log_In_now)%>" onclick="redirect_to_Signin();" />
+
         <%else%>
-          <input type="button" class="yellowbutton"  style="margin-right:10px;" value="<%=t(:Signout)%>" onclick="redirect_to_signout();" />
-          <input type="button" class="yellowbutton"  style="margin-right:10px;" value="<%=t(:Profile)%>" onclick="redirect_to_profile();" />
+          <% unless current_user.is_admin %>
+            <input type="button" class="yellowbutton"  style="margin-right:10px;" value="<%=t(:Profile)%>" onclick="redirect_to_profile();" />
+          <%end%>
+          <input type="button" class="yellowbutton"  style="margin-right:10px;" value="<%=t(:Signout)%>" onclick="redirect_to_signout();" />           
         <%end%>
-      
-          <a href="<%= root_path %>">
+
+        <a href="<%= root_path %>">
           <img class="logo" src="/images/logo.png" alt="Furista" />
         </a>
         <%= link_to "DE", "#", :onclick => "addParamToUrl('locale', 'de')" %> |
@@ -108,6 +115,12 @@
   function redirect_to_new()
   {
   window.location = "<%= new_recipe_path %>"
+  }
+</script>
+<script type="text/javascript">
+  function redirect_to_edit()
+  {
+  window.location = "/admin/recipes/new"
   }
 </script>
 <script type="text/javascript">

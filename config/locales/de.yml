@@ -46,6 +46,8 @@ de:
     Need_an_account: "M�chtest du einen Account?"
     Signup: "Registrierung"
     Profile: "Profil"
+    New_recipe: "Neu rezepte"
+    Your_recipe: "Your rezepte"
     number:
        currency:
           format:

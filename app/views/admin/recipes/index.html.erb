@@ -1,0 +1,23 @@
+<h2>All Recipes </h2><br/>
+<% @recipes.each do |r| %>
+  <h4>
+     <%=t(:title)%>: <%= r.title %>&nbsp;&nbsp;&nbsp;&nbsp;
+    <%= link_to 'Show', "/Rezepte/#{r.recipes_url}" %>    
+    <%= link_to 'Edit', "#"%>
+    <%= link_to 'Delete', admin_recipe_path(r), :confirm => 'Are you sure?', :method => :delete %>
+    <h4/>  
+    <div class="name_hold" style="overflow: auto;color: cadetblue;">
+      <img src="images/name_img.png" alt="" />
+
+      <%if r.user_id.blank?%>
+        <p><%=r.email_address%></p>
+      <%else%>
+        <p><%=r.user.first_name%>&nbsp;<%=r.user.last_name%></p>
+      <%end%>
+
+      <div class="clr"></div>
+    </div>
+
+
+  <%end%>
+

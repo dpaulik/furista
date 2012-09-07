@@ -8,9 +8,9 @@
 
           <%=link_to image_tag("/assets/missing1.jpg"), "/Rezepte/#{r.recipes_url}" %>  
         <%else%>
-          <%=link_to image_tag(r.photo.url(:thumb)), "/Rezepte/#{r.recipes_url}"%>  
+          <%=link_to image_tag(r.photo.url(:medium)), "/Rezepte/#{r.recipes_url}"%>  
         <%end%>
-        <h4 style="color: blue;">
+        <h4>
           <%= r.title %>
         </h4>
 

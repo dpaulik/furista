@@ -12,9 +12,12 @@ class ApplicationController < ActionController::Base
   before_filter :set_locale
   
   def after_sign_in_path_for(resource)
-     "/profile/#{current_user.id}"
+    if current_user.is_admin == 0  
+      "/profile/#{current_user.id}"
+    else
+      admin_recipes_path
+    end 
   end
-  
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
     params[:locale] =  I18n.locale
