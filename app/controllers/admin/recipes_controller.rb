@@ -5,13 +5,14 @@ class Admin::RecipesController < ApplicationController
   before_filter :authenticate_user!
   
   
-    def index
-      @recipes = Recipe.all
-    end
+  def index
+    @recipes = Recipe.all
+  end
   
   def new
     @recipe = Recipe.new
     @units = Unit.all
+    @ingredients = @recipe.ingredients
   end
 
   def add_ingredient
@@ -285,31 +286,62 @@ class Admin::RecipesController < ApplicationController
   end
 
   
-    def show
-      @recipes = Recipe.find params[:id]
-    end
+  def show
+    @recipes = Recipe.find params[:id]
+  end
   
-    def edit
-#      @recipes = Recipe.find params[:id]
-    end
+  def edit
+    @recipe = Recipe.find params[:id]
+    @units = Unit.all
+    @ingredients = @recipe.ingredient_recipes
+          
+  end
   
   
-    def update
-      @recipes = Recipe.find params[:id]   
-      if @recipes.update_attributes(params[:recipes])
-        redirect_to admin_recipes_path
-      else
-        render :edit
+  def update
+    @recipe = Recipe.find params[:id]   
+    if @recipe.update_attributes(params[:recipe])
+      params[:ingredient][:ingredient].each_with_index do | i, index |
+        unless i.blank?
+          ingredient = Ingredient.find_by_ingredient(i)
+
+          if ingredient.blank?
+            ingredient = Ingredient.create(:ingredient => i)
+            UserMailer.new_ingredient(ingredient).deliver
+          end
+          amount = params[:ingredient][:amount][index]
+          unit = params[:ingredient][:unit][index]
+          unless unit.blank?
+            unitobj = Unit.find unit.to_i
+          else
+            unitobj = nil
+          end
+          unless @recipe.ingredients.include?(ingredient)
+            IngredientRecipe.create(:ingredient_id => ingredient.id, :recipe_id => @recipe.id, :amount => amount, :unit => unitobj)
+          else
+            @ingr=IngredientRecipe.find_by_recipe_id_and_ingredient_id(@recipe.id,ingredient.id)
+            @ingr.update_attributes(:ingredient_id => ingredient.id, :recipe_id => @recipe.id, :amount => amount, :unit => unitobj)
+          end
+        end
       end
+      redirect_to admin_recipes_path
+    else
+      render :edit
     end
+  end
   
-    def destroy
-      recipe = Recipe.find(params[:id])
+  def destroy
+    recipe = Recipe.find(params[:id])
+    @ingredients= recipe.ingredient_recipes
     if recipe.destroy
+      @ingredients.each do |ing|
+        ing.destroy
+      end
+      
       flash[:notice] = "Recipe deleted successfully!"
     else
       flash[:notice] = "Recipe can't be deleted. Please try again or later."
     end
     redirect_to admin_recipes_path
-    end
   end
+end

@@ -1,4 +1,14 @@
 <label>
   <%=t(:Unit)%>
 </label>
-<%= select_tag "ingredient[unit][]", options_from_collection_for_select(part_units, :id, :name), :style => "width:113px;" , :include_blank => true %>
+<%unless ingredients.blank?%>
+
+<% @unit=Unit.find_by_id(ingredient.unit_id)%>
+<%if @unit%>
+  <%= select_tag "ingredient[unit][]", options_from_collection_for_select(part_units, :id, :name, @unit.name), :style => "width:113px;" , :include_blank => true %>
+<%else%>
+  <%= select_tag "ingredient[unit][]", options_from_collection_for_select(part_units, :id, :name), :style => "width:113px;" , :include_blank => true %>
+<%end%>
+  <%else%>
+  <%= select_tag "ingredient[unit][]", options_from_collection_for_select(part_units, :id, :name), :style => "width:113px;" , :include_blank => true %>
+<%end%>
