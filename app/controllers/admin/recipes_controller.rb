@@ -295,13 +295,15 @@ class Admin::RecipesController < ApplicationController
     @recipe = Recipe.find params[:id]
     @units = Unit.all
     @ingredients = @recipe.ingredient_recipes
-          
+      title = @recipe.title    
   end
   
   
   def update
     @recipe = Recipe.find params[:id]   
+    title = @recipe.title
     if @recipe.update_attributes(params[:recipe])
+    @recipe.update_attribute(:recipes_url, title)
       params[:ingredient][:ingredient].each_with_index do | i, index |
         unless i.blank?
           ingredient = Ingredient.find_by_ingredient(i)

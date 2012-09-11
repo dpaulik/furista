@@ -1,7 +1,7 @@
 <h2>All Recipes </h2><br/>
 <% @recipes.each do |r| %>
   <h4>
-     <%=t(:title)%>: <%= r.title %>&nbsp;&nbsp;&nbsp;&nbsp;
+     <%=t(:title)%>: <%= r.title %>.&nbsp;&nbsp;&nbsp;&nbsp;
     <%= link_to 'Show', "/Rezepte/#{r.recipes_url}" %>    
     <%= link_to 'Edit', edit_admin_recipe_path(r)%>
     <%= link_to 'Delete', admin_recipe_path(r), :confirm => 'Are you sure?', :method => :delete %>
