@@ -335,7 +335,7 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @recipe  = Recipe.find_by_recipes_url params[:id]
+    @recipe = Recipe.find_by_recipes_url params[:id]
   end
   
 end

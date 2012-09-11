@@ -287,7 +287,8 @@ class Admin::RecipesController < ApplicationController
 
   
   def show
-    @recipes = Recipe.find params[:id]
+    @recipe = Recipe.find params[:id]
+    
   end
   
   def edit

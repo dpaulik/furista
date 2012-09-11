@@ -36,7 +36,7 @@
 
             <div style="float:left;width:100%;">
               <div style="float:left;width:80px"><%= i.amount.floor == i.amount ? i.amount.to_i : i.amount unless i.amount.blank?%>&nbsp;</div>
-              <div style="float:left;width:80px"><%= i.unit.name%>&nbsp;</div>
+              <div style="float:left;width:80px"><%= i.unit.name unless i.unit.blank?%>&nbsp;</div>
               <div style="float:left;width:400px"><%= i.ingredient.ingredient %></div>
             </div>
 
