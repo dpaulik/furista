@@ -2,7 +2,7 @@
   <div class="postboxholder">
 
     <h1><%=t(:Edit_recipe)%>.</h1>
-    
+
     <div class="greybox">
       <%= form_for @recipe, :html => {:onsubmit=> 'return validate();', :multipart => true} do |f|%>
 
@@ -41,7 +41,7 @@
         <div class="ingredientunit">
           <%= fields_for :ingredient do |i| %>
             <div id="repeat_row">
-              <%= render :partial => "ingredient", :locals => {:count => count, :units => @units} %>
+              <%= render :partial => "ingredient", :locals => {:count => count, :units => @units} %> 
             </div>
           <%end%>
           <div class="singleunit" style="float:none" id="add_more_<%= count %>">
@@ -96,7 +96,7 @@
             <%= f.hidden_field :user_id, :value => current_user.id %>
           <%end%>
         </div>
-        
+
         <div class="agreeholder">
           <%= f.hidden_field :i_agree, :value => true%>
         </div>
@@ -109,40 +109,40 @@
 <script type="text/javascript">
   function isDecimalKey(eve)
   {
-    if(eve.which != 8){
-      if ((eve.which != 46 || $(this).val().indexOf('.') != -1) && (eve.which < 48 || eve.which > 57) || (eve.which == 46 && $(this).caret().start == 0)) {
-        eve.preventDefault();
+  if(eve.which != 8){
+  if ((eve.which != 46 || $(this).val().indexOf('.') != -1) && (eve.which < 48 || eve.which > 57) || (eve.which == 46 && $(this).caret().start == 0)) {
+  eve.preventDefault();
 
-      }
-    }
-      // this part is when left part of number is deleted and leaves a . in the leftmost position. For example, 33.25, then 33 is deleted
   }
-  
-  
+  }
+  // this part is when left part of number is deleted and leaves a . in the leftmost position. For example, 33.25, then 33 is deleted
+  }
+
+
   function validate()
   {
-    value = $("#recipe_title").val();
-    if(value == "")
-    {
-      alert("Title can't be blank");
-      return false;
-    }
-    else
-    {
-     return true
-    }
+  value = $("#recipe_title").val();
+  if(value == "")
+  {
+  alert("Title can't be blank");
+  return false;
+  }
+  else
+  {
+  return true
+  }
 
   }
 
   $(".ingredient_count_class").live("click", function() {
-    var $this = $(this);
-    $this.autocomplete({
-      change:function( event, ui ) {
-        $.ajax({
-          type:"GET",
-          url: '/recipes/fetch_units/'+ui.item.value+'/'+$this.attr('id').split('_')[1] 
-        });
-      }
-    })
+  var $this = $(this);
+  $this.autocomplete({
+  change:function( event, ui ) {
+  $.ajax({
+  type:"GET",
+  url: '/recipes/fetch_units/'+ui.item.value+'/'+$this.attr('id').split('_')[1] 
+  });
+  }
+  })
   });
 </script>

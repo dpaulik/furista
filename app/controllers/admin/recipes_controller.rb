@@ -302,6 +302,7 @@ class Admin::RecipesController < ApplicationController
   def update
     @recipe = Recipe.find params[:id]   
     title = @recipe.title
+    
     if @recipe.update_attributes(params[:recipe])
     @recipe.update_attribute(:recipes_url, title)
       params[:ingredient][:ingredient].each_with_index do | i, index |
