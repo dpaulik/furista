@@ -13,8 +13,10 @@ class ApplicationController < ActionController::Base
   
   def after_sign_in_path_for(resource)
     if current_user.is_admin == false  
+     
       "/profile/#{current_user.id}"
     else
+      
       admin_recipes_path
     end 
   end

@@ -24,7 +24,7 @@
 
     <%= stylesheet_link_tag 'application','dashboard' %>
     <%= javascript_include_tag "application" %>
-<%#= javascript_include_tag "jquery.isotope.min" %>
+    <%= javascript_include_tag "jquery.isotope.min" %>
 
     <%= yield(:head) %>
     <%= csrf_meta_tags %>
@@ -48,6 +48,7 @@
 
         <%else%>
           <% unless current_user.is_admin %>
+
             <input type="button" class="yellowbutton"  style="margin-right:10px;" value="<%=t(:Profile)%>" onclick="redirect_to_profile();" />
           <%end%>
           <input type="button" class="yellowbutton"  style="margin-right:10px;" value="<%=t(:Signout)%>" onclick="redirect_to_signout();" />           
@@ -72,7 +73,7 @@
 </html>
 
 
-<script>
+<script type="text/javascript">
 
   function addParamToUrl(param, value)
   {
