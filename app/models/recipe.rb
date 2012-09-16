@@ -11,7 +11,7 @@ class Recipe < ActiveRecord::Base
     :path => "/system/ugc/:class/:id/:style/:basename.:extension",
     :styles => {:thumb => "114x114>", :small => "150x150>", :medium => "275x275>", :large => "640x640>" },
     :default_style => :original
-
+    default_scope :order => 'created_at DESC'
 
   validates_attachment_size :photo, :less_than => 5.megabytes
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png', 'image/gif', 'image/jpg', 'image/bmp']

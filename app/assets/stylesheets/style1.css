@@ -6,44 +6,20 @@ h1, h2, h3, h4, h5, h6, p{margin:0;padding:0;}
 img{border:none;}
 .wrrapper{margin:0 auto;width:1000px;margin-left: 10px;}
 body{background:none scroll 0 0 #f2f1f0;}
-.gellary_hold{background:none scroll 0 0 #f1efef;box-shadow: 0 1px 3px #666666;border:1px solid #ccccc9;float:left;margin-right:16px;width:177px;margin-bottom:10px;}
+.gellary_hold{background:none scroll 0 0 #f1efef;
+              box-shadow: 0 1px 3px #666666;
+              border:1px solid #ccccc9;margin-right:16px;width:177px;margin-bottom:20px;margin-top: 10px;float:left;}
 .gellary_hold .white_hold{background:none scroll 0 0 #fff;padding:10px;}
-.gellary_hold .white_hold img{width:157px;height:130px;}
+.gellary_hold .white_hold img{width:157px;height:110px;}
 .gellary_hold .white_hold h4{margin-top:10px;font-size:12px;color:#000;}
 .clr{clear:both;display:block;width:0;height:0;}
 .gellary_hold .name_hold{padding:10px;}
 .gellary_hold .name_hold img{float:left;margin-right:5px;}
-.gellary_hold .name_hold p{float:left;width:100px;color:#8c7e7e;font-size:10px;}
+.gellary_hold .name_hold p{   color: #8C7E7E;
+                              float: left;
+                              font-size: 10px;
+                              height: auto;
+                              text-align: left;
+                              width: 125px;
+                              word-wrap: break-word;}
 .mr0{margin-right:0 !important;}
-
-
-/**** Isotope filtering ****/
-
-.isotope-item {
-  z-index: 2;
-}
-
-.isotope-hidden.isotope-item {
-  pointer-events: none;
-  z-index: 1;
-}
-
-.isotope,
-.isotope .isotope-item {
-  /* change duration value to whatever you like */
-  -webkit-transition-duration: 0.8s;
-     -moz-transition-duration: 0.8s;
-          transition-duration: 0.8s;
-}
-
-.isotope {
-  -webkit-transition-property: height, width;
-     -moz-transition-property: height, width;
-          transition-property: height, width;
-}
-
-.isotope .isotope-item {
-  -webkit-transition-property: -webkit-transform, opacity;
-     -moz-transition-property:    -moz-transform, opacity;
-          transition-property:         transform, opacity;
-}

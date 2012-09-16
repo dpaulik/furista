@@ -1,6 +1,7 @@
-<%#
-# To change this template, choose Tools | Templates
-# and open the template in the editor.
-%>
+<%= form_for [:admin,@recipe], :html => {:name => "recipe_form", :multipart => true} do|f| %>
+  <%= render :partial => "form", :locals => {:f => f} %>
+<% end %>
 
-<h2><%= "edit.html" %></h2>
+
+
+

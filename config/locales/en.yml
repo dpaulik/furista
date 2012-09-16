@@ -50,6 +50,7 @@ en:
     Profile: "Profile"
     New_recipe: "New recipe"
     Your_recipe: "Your recipe"
+    Edit_recipe: "Edit Recipe"
     number:
        currency:
           format:

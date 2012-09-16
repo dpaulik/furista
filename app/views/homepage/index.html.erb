@@ -2,7 +2,7 @@
 <div class="wrrapper" id="project_images">
   <% @recipes.each do |r| %>
 
-    <div class="gellary_hold"   >
+    <div class="gellary_hold" >
       <div class="white_hold" >
         <% if r.photo_file_name.blank? %>
 
@@ -32,49 +32,11 @@
 </div>
 <script type="text/javascript">
 
-  $(document).ready(function(){
-  var $container = $('#project_images');
-  $container.isotope({
-  filter: '*',
-  animationOptions: {
-  duration: 750,
-  easing: 'linear',
-  queue: false,
-  }
-  });
+
+
+  $('#project_images').isotope({
+  // options
+  itemSelector : '.gellary_hold',
+  layoutMode : 'masonry'
   });
 </script>
-<style>
-  **** Isotope filtering ****/
-
-  .isotope-item {
-    z-index: 2;
-  }
-
-  .isotope-hidden.isotope-item {
-    pointer-events: none;
-    z-index: 1;
-  }
-
-  .isotope,
-  .isotope .isotope-item {
-    /* change duration value to whatever you like */
-    -webkit-transition-duration: 0.8s;
-    -moz-transition-duration: 0.8s;
-    transition-duration: 0.8s;
-  }
-
-  .isotope {
-    -webkit-transition-property: height, width;
-    -moz-transition-property: height, width;
-    transition-property: height, width;
-  }
-
-  .isotope .isotope-item {
-    -webkit-transition-property: -webkit-transform, opacity;
-    -moz-transition-property:    -moz-transform, opacity;
-    transition-property:         transform, opacity;
-  }
-
-</style>
-
