@@ -10,7 +10,7 @@ body{background:none scroll 0 0 #f2f1f0;}
               box-shadow: 0 1px 3px #666666;
               border:1px solid #ccccc9;margin-right:16px;width:177px;margin-bottom:20px;margin-top: 10px;float:left;}
 .gellary_hold .white_hold{background:none scroll 0 0 #fff;padding:10px;}
-.gellary_hold .white_hold img{width:157px;height:110px;}
+.gellary_hold .white_hold img{width:157px;}
 .gellary_hold .white_hold h4{margin-top:10px;font-size:12px;color:#000;}
 .clr{clear:both;display:block;width:0;height:0;}
 .gellary_hold .name_hold{padding:10px;}
