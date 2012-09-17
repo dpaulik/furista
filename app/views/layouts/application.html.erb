@@ -37,7 +37,7 @@
     <div class="container">
       <div class="header">
         <% unless current_user %>
-          <input type="button" class="yellowbutton" value="<%=t(:post_your_recipe)%>" onclick="redirect_to_new();"  />
+          
         <%else%>
           <input type="button" class="yellowbutton" value="<%=t(:New_recipe)%>" onclick="redirect_to_edit();"  />
         <%end%>
@@ -45,11 +45,10 @@
         <% unless current_user %>
           <input type="button" class="yellowbutton" style="margin-right:10px;" value="<%=t(:Signup)%>" onclick="redirect_to_new_user();" />
           <input type="button" class="yellowbutton"  style="margin-right:10px;" value="<%=t(:Log_In_now)%>" onclick="redirect_to_Signin();" />
-
         <%else%>
           <% unless current_user.is_admin %>
-
             <input type="button" class="yellowbutton"  style="margin-right:10px;" value="<%=t(:Profile)%>" onclick="redirect_to_profile();" />
+            <input type="button" class="yellowbutton" value="<%=t(:post_your_recipe)%>" onclick="redirect_to_new();"  />
           <%end%>
           <input type="button" class="yellowbutton"  style="margin-right:10px;" value="<%=t(:Signout)%>" onclick="redirect_to_signout();" />           
         <%end%>
@@ -127,7 +126,7 @@
 <script type="text/javascript">
   function redirect_to_new_user()
   {
-  window.location = "<%= new_user_registration_path %>"
+  window.location = "http://unbouncepages.com/furista-anmeldung/"
   }
 </script>
 <script type="text/javascript">
