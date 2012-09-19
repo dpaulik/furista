@@ -30,9 +30,9 @@ class ApplicationController < ActionController::Base
 
     locale = parsed_locale
 
-    #unless params[:locale]
-    #  locale = params[:locale]
-    #end
+    if params[:locale]
+      locale = params[:locale]
+    end
     I18n.locale = locale
     params[:locale] = I18n.locale
   end
